@@ -1,4 +1,5 @@
 import os
+import uproot
 import src.reader as read
 
 class Generator:
@@ -12,16 +13,16 @@ class Generator:
     	
     	reader = read.reader(feature_names=self.feature_names)
 
-    	files = os.listdir(self.sample_dir_path).sort()
+    	files = [f+':nominal' for f in os.listdir(self.sample_dir_path)]
 
     	# keep data in lists for performance
     	samples_concat = []
 
     	# iterate through all files
-    	for ff in files:
+    	for ff in  uproot.iterate(files):
     		
     		# read samples from a single file
-    		samples = reader.read_file(file_path=ff)
+    		samples = tree.arrays(self.feature_names)
     		# apply selection cuts
     		selected_samples = selection.select(samples)
     		samples_concat.extend(selected_samples)

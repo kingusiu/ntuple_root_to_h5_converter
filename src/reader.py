@@ -2,7 +2,7 @@
 """
 import numpy as np
 import uproot
-import awkward as ak
+import awkward as awk
 
 class Reader:
 
@@ -21,20 +21,16 @@ class Reader:
         self.feature_names = feature_names
         
 
-    def read_file(self, file_path:string) -> tuple[np.ndarray,np.ndarray,np.ndarray]:
+    def read_file(self, file_path:string) -> awk.highlevel.Array:
         """read features of samples in file
         
         Args:
             file_path (string): full path to file
         
         Returns:
-            tuple[np.ndarray, np.ndarray, np.ndarray]: a tuple of arrays, each corresponding to a feature of self.feature_names
-        """
-        ff = uproot.open(file_path)
-        tree = ff['nominal;1']
+            awk.highlevel.Array: ragged array containing self.feature_names values
         
-        pu = ak.to_numpy(ak.flatten(tree['jet_GN2_pu'].array()))
-        pb = ak.to_numpy(ak.flatten(tree['jet_GN2_pb'].array()))
-        pc = ak.to_numpy(ak.flatten(tree['jet_GN2_pc'].array()))
+        """
+        tree = uproot.open(file_path+':nominal')
 
-        return pu, pb, pc
+        return tree.arrays(self.feature_names)
