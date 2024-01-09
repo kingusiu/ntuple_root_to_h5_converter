@@ -10,11 +10,9 @@ The selections are based on invariant mass of two-electron and two-muon systems.
 
 1. **Momentum Components:**
    - Calculate the x, y, and z components of the particle momentum from the transverse ninebryo `pt` and angles $\eta$ and $\phi$.
-   $$
-    px = pt * \cos(\phi)
+   $$px = pt * \cos(\phi)
     py = pt * \sin(\phi)
-    pz = pt * \sinh(\eta)
-   $$
+    pz = pt * \sinh(\eta)$$
 
 2. **3D Momentum Magnitude:**
    - Compute the 3D magnitude of the electron momentum vector.
