@@ -16,12 +16,12 @@ class Reader:
         """docstring for init
         
         Args:
-            feature_names (list): the features to be read for a sample
+            feature_names (list): the features to be read for a sample (list of strings)
         """
         self.feature_names = feature_names
         
 
-    def read_file(self, file_path:string) -> awk.highlevel.Array:
+    def read_samples_from_file(self, file_path:string) -> awk.highlevel.Array:
         """read features of samples in file
         
         Args:
