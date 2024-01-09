@@ -25,7 +25,7 @@ def select(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 	# invariant mass of muons 80-100 GeV
 	mask_mumu_m = samples['mumu_m'] > 80 & samples['mumu_m'] < 100
 
-	# exactly two electrons of opposite charge and Z invariant mass window
+	# exactly two electrons of opposite charge
 	mask_ee = (awk.num(samples['el_e']) == 2) & (ak.sum(samples['el_charge'],axis=1) == 0) 
 	
 	# exactly two muons of opposite charge
