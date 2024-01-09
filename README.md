@@ -1,4 +1,4 @@
-# Event Selections for *Light-Jet* Enriched Samples
+# Generation of *Light-Jet* Enriched Samples
 
 This repository contains a Python script for converting a raw root dataset to a light-jet enriched dataset for light-calibration. The script reads events in root-format, filters them based on light-jet criteria (see below) and saves them in numpy/h5 format.
 
@@ -6,7 +6,21 @@ The code consists of two main parts: Data reading and event selection.
 
 ## I. Data Reading
 
-TODO
+#### Samples
+
+| Option | Choice | Path-suffix |
+| --- | ----------- | ----------- | 
+| Process | Z+Jets | ZJets |
+| Generator | Madgraph | MG |
+
+#### Processes
+
+| Process | File-ID |
+| --- | ----------- | 
+| Zee |  506193, 506194, 506195 |
+| Zmumu |  506196, 506197, 506198 |
+| Ztautau |  512198, 512199, 512200 |
+
 
 ## II. Event Selection
 

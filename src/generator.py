@@ -11,8 +11,6 @@ class Generator:
 
     def generate(self,N:int) -> np.ndarray:
     	
-    	reader = read.reader(feature_names=self.feature_names)
-
     	files = [f+':nominal' for f in os.listdir(self.sample_dir_path)]
 
     	# keep data in lists for performance
