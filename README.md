@@ -5,18 +5,26 @@ This repository contains a Python script for converting a raw root dataset to a 
 ## Code Overview
 The code consists of two main parts: Data reading and event selection.
 
+### I. Data Reading
+
+TODO
+
+### II. Event Selection
+
+The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
+
 #### Invariant mass calculation of two-lepton system
-The selections are based on invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components (px,py and pz calculated from transvere momentum pt and angles eta and phi) and energy.
+The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components (px,py and pz calculated from transvere momentum pt and angles eta and phi) and energy.
 
 1. **Momentum Components:**
-   - Calculate the x, y, and z components of the particle momentum from the transverse momentup `pt_t` and angles $\eta$ and $\phi$.
+   - Calculate the x, y, and z components of the particle momentum from the transverse momentum $pt_t$ and angles $\eta$ and $\phi$.
      $$px = pt_t * \cos(\phi)$$
      $$py = pt_t * \sin(\phi)$$
      $$pz = pt_t * \sinh(\eta)$$
 
 2. **3D Momentum Magnitude:**
    - Compute the particles' 3D momentum.
-     $$ pt = \sqrt(px^2 + py^2 + pz^2)$$
+     $$pt = \sqrt(px^2 + py^2 + pz^2)$$
 
 3. **Energy Calculation:**
    - Determine the energy of the particle in the 3D space.
@@ -24,16 +32,10 @@ The selections are based on invariant mass of two-electron and two-muon systems.
 
 4. **Invariant Mass Calculation:**
    - Utilize the energy and momentum components to calculate the invariant mass for each event.
-     ```python
-     samples['ee_m'] = awk.sum(np.sqrt(el_e3d**2 - el_pt3d**2), axis=1)
-     ```
-   - The invariant mass is computed using the formula: 
-     \[ m = \sqrt{E^2 - |\vec{p}|^2} \]
+     $$m_{ll} = \sum \sqrt(e^2 - pt^2)$$
 
 
-### Event Selection Criteria
-
-The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
+#### Selections
 
 The selections are:
 
