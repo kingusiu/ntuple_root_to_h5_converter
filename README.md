@@ -2,18 +2,17 @@
 
 This repository contains a Python script for converting a raw root dataset to a light-jet enriched dataset for light-calibration. The script reads events in root-format, filters them based on light-jet criteria (see below) and saves them in numpy/h5 format.
 
-## Code Overview
 The code consists of two main parts: Data reading and event selection.
 
-### I. Data Reading
+## I. Data Reading
 
 TODO
 
-### II. Event Selection
+## II. Event Selection
 
 The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
 
-#### Invariant mass calculation of two-lepton system
+### Invariant mass calculation of two-lepton system
 The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components (px,py and pz calculated from transvere momentum pt and angles eta and phi) and energy.
 
 1. **Momentum Components:**
@@ -35,7 +34,7 @@ The selections are based on the invariant mass of two-electron and two-muon syst
      $$m_{ll} = \sum \sqrt(e^2 - pt^2)$$
 
 
-#### Selections
+### Selections
 
 The selections are:
 
