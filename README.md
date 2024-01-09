@@ -6,21 +6,36 @@ The code consists of two main parts: Data reading and event selection.
 
 ## I. Data Reading
 
+Production Period: Run2, MC20
+
+2 types of samples:
+1. Light jets: /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2/mc20_Run2/Ntuples
+2. B-jets: /eos/atlas/unpledged/group-tokyo/users/wojang/qt/wonho_samples_run2
+
+ad 1. light-jets:
+
 #### Samples
 
 | Option | Choice | Path-suffix |
-| --- | ----------- | ----------- | 
+| --- | ----------- | ----------- |
+| SW release | Release 24, GN2 | Rel24_GN2 |
+| Period | E | PeriodE <= ???| 
 | Process | Z+Jets | ZJets |
+| Final state | 2 leptons |
 | Generator | Madgraph | MG |
 
 #### Processes
 
-| Process | File-ID |
-| --- | ----------- | 
-| Zee |  506193, 506194, 506195 |
-| Zmumu |  506196, 506197, 506198 |
-| Ztautau |  512198, 512199, 512200 |
+| Z Decays | B Filter | CFilterBVeto | CVetoBVeto |
+| --- | ------ | ------ | ------ | 
+| Z-ee |  506193 | 506194 | 506195 |
+| Z-mumu |  506196 | 506197 | 506198 |
+| Z-tautau |  512198 | 512199 | 512200 |
 
+For example, reading a file of Run2 Madgraph MC for b-triggered Z+jet events decaying to two electrons:
+
+`'/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2/mc20_Run2/Ntuples/PeriodE/ZJets_MG/user.ltoffoli.mc20_13TeV.506193.MGPy8EG_3jets_HT2bias_BFilter.deriv.DAOD_PHYS.e8382_s3681_r13145_p5631.toffoGN2_v1_output.root'
+`
 
 ## II. Event Selection
 
