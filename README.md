@@ -9,22 +9,18 @@ The code consists of two main parts: Data reading and event selection.
 The selections are based on invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components (px,py and pz calculated from transvere momentum pt and angles eta and phi) and energy.
 
 1. **Momentum Components:**
-   - Calculate the x, y, and z components of the particle momentum from the transverse ninebryo `pt` and angles $\eta$ and $\phi$.
-      $$px = pt * \cos(\phi)$$
-      $$py = pt * \sin(\phi)$$
-      $$pz = pt * \sinh(\eta)$$
+   - Calculate the x, y, and z components of the particle momentum from the transverse momentup `pt_t` and angles $\eta$ and $\phi$.
+     $$px = pt_t * \cos(\phi)$$
+     $$py = pt_t * \sin(\phi)$$
+     $$pz = pt_t * \sinh(\eta)$$
 
 2. **3D Momentum Magnitude:**
-   - Compute the 3D magnitude of the electron momentum vector.
-     ```python
-     el_pt3d = np.sqrt(el_px**2 + el_py**2 + el_pz**2)
-     ```
+   - Compute the particles' 3D momentum.
+     $$ pt = \sqrt(px^2 + py^2 + pz^2)$$
 
 3. **Energy Calculation:**
-   - Determine the energy of the electrons in the 3D space.
-     ```python
-     el_e3d = np.sqrt((samples.el_pt * np.cosh(samples.el_eta))**2 + (511e-3)**2)
-     ```
+   - Determine the energy of the particle in the 3D space.
+     $$e = \sqrt((pt_t * \cosh(\eta))^2 + (511e-3)^2)$$
 
 4. **Invariant Mass Calculation:**
    - Utilize the energy and momentum components to calculate the invariant mass for each event.
