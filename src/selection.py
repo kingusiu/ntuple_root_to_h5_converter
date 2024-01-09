@@ -1,23 +1,24 @@
 import numpy as np
 import awkward as awk
 
+def calc_invariant_mass(pt_t:awk.highlevel.Array, phi:awk.highlevel.Array, eta:awk.highlevel.Array) -> awk.highlevel.Array:
+
+	px = pt_t * np.cos(phi)
+	py = pt_t * np.sin(phi)
+	pz = pt_t * np.sinh(eta)
+	pt3d = np.sqrt(px**2 + py**2 + pz**2)
+	e3d = np.sqrt((pt_t*cosh(eta))**2 + (511e-3)**2)
+	
+	return awk.sum(np.sqrt(e3d**2 - pt3d**2), axis=1)
+
+
 def select(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
 	# compute invariant mass of electrons
-	el_px = samples.el_pt * np.cos(samples.el_phi)
-	el_py = samples.el_pt * np.sin(samples.el_phi)
-	el_pz = samples.el_pt * np.sinh(samples.el_eta)
-	el_pt3d = np.sqrt(el_px**2 + el_py**2 + el_pz**2)
-	el_e3d = np.sqrt((samples.el_pt*cosh(samples.el_eta))**2 + (511e-3)**2)
-	samples['ee_m'] = awk.sum(np.sqrt(el_e3d**2 - el_pt3d**2),axis=1)
+	samples['ee_m'] = calc_invariant_mass(samples.el_pt, samples.el_phi, samples.el_eta)
 
 	# compute invariant mass of muons
-	mu_px = samples.mu_pt * np.cos(samples.mu_phi)
-	mu_py = samples.mu_pt * np.sin(samples.mu_phi)
-	mu_pz = samples.mu_pt * np.sinh(samples.mu_eta)
-	mu_pt3d = np.sqrt(mu_px**2 + mu_py**2 + mu_pz**2)
-	mu_e3d = np.sqrt((samples.mu_pt*cosh(samples.mu_eta))**2 + (511e-3)**2)
-	samples['mumu_m'] = awk.sum(np.sqrt(mu_e3d**2 - mu_pt3d**2),axis=1)
+	samples['mumu_m'] = calc_invariant_mass(samples.mu_pt, samples.mu_phi, samples.mu_eta)
 
 	# invariant mass of electrons 80-100 GeV
 	mask_ee_m = samples['ee_m'] > 80 & samples['ee_m'] < 100
