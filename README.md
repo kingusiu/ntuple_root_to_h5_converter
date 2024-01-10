@@ -47,13 +47,13 @@ Process: 410472 (???)
 The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
 
 ### Invariant mass calculation of two-lepton system
-The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt_t$ and angles $\eta$ and $\phi$) and energy.
+The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the 3D momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$) and energy.
 
 1. **Momentum Components:**
-   - Calculate the x, y, and z components of the particle momentum from the transverse momentum $pt_t$ and angles $\eta$ and $\phi$.
-     $$px = pt_t * \cos(\phi)$$
-     $$py = pt_t * \sin(\phi)$$
-     $$pz = pt_t * \sinh(\eta)$$
+   - Calculate the x, y, and z components of the particle momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
+     $$px = pt * \cos(\phi)$$
+     $$py = pt * \sin(\phi)$$
+     $$pz = pt * \sinh(\eta)$$
 
 2. **3D Momentum Magnitude:**
    - Compute the particle's 3D momentum.
@@ -61,7 +61,7 @@ The selections are based on the invariant mass of two-electron and two-muon syst
 
 3. **Energy Calculation:**
    - Determine the energy of the particle in the 3D space.
-     $$e = \sqrt((pt_t * \cosh(\eta))^2 + (511e-3)^2)$$
+     $$e = \sqrt((pt * \cosh(\eta))^2 + (511e-3)^2)$$
 
 4. **Invariant Mass Calculation:**
    - Utilize the energy and momentum components to calculate the invariant mass for each event.
