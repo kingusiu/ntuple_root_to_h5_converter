@@ -85,10 +85,13 @@ The selections are:
 2. **Z Invariant Mass Windows: $m_{ll}$ (electron or muon system) in 80-100 GeV**
    - Applies invariant mass windows (80-100 GeV) to the electron- (`mask_ee_m`) resp. muon-system (`mask_mumu_m`) to select Z candidates.
 
-3. **Jet Multiplicity:**
+3. **Z transverse Momentum: $pt_{ll}$ (electron or muon system) > 50 GeV**
+   - Selects events with di-lepton transverse momentum above 50 GeV because of mismodeling issues below this value.
+
+4. **Jet Multiplicity:**
    - Requires at least one jet in the event (`awk.num(samples['jet_e']) >= 1`).
 
-4. **Final Selection:**
+5. **Final Selection:**
    - Combines all the individual masks to obtain the final selection (`mask`).
    - Applies the selection to the input samples, returning a subset of events.
 
