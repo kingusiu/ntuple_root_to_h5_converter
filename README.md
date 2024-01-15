@@ -42,11 +42,9 @@ For example, reading a file of Run2 Madgraph MC for b-triggered Z+jet events dec
 
 Process: 410472 (???)
 
-## II. Event Selection
+## II. Kinematics Calculations
 
-The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
-
-#### Invariant mass calculation of two-lepton system
+### Invariant mass calculation of two-lepton system
 The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the x,y,z momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$) and energy.
 
 1. **Momentum Components:**
@@ -74,7 +72,7 @@ The selections are based on the invariant mass of two-electron and two-muon syst
      $$m_{ll} = \sum \sqrt(enrg^2 - mom2)$$
 
 
-#### Transverse momentum calculation of two-lepton system
+### Transverse momentum calculation of two-lepton system
 The selections are based on the transverse momentum of two-electron and two-muon systems. The calculation of the transverse momentum is based on the x and y momentum components ($px$, $py$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$).
 
 1. **Momentum Components:**
@@ -90,8 +88,10 @@ The selections are based on the transverse momentum of two-electron and two-muon
 3. **Transverse Momentum:**
      $$pt_{ll} = \sqrt(\vec{p_{ll}} \cdot \vec{p_{ll}})$$
 
+## II. Event Selection
 
-### Selections
+The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
+
 
 The selections are:
 
