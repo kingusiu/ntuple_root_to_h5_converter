@@ -53,10 +53,10 @@ def select(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 	mask_mumu_m = (mumu_m > z_m_min) & (mumu_m < z_m_max)
 
 	# di-electron pt
-	mask_ee_pt = calc_dilepton_pt(samples.el_pt, samples.el_eta, samples.el_phi) > z_pt_min.
+	mask_ee_pt = calc_dilepton_pt(samples.el_pt, samples.el_eta, samples.el_phi) > z_pt_min
 
 	# di-muon pt
-	mask_mumu_pt = calc_dilepton_pt(samples.mu_pt, samples.mu_eta, samples.mu_phi) > z_pt_min.
+	mask_mumu_pt = calc_dilepton_pt(samples.mu_pt, samples.mu_eta, samples.mu_phi) > z_pt_min
 
 	# exactly two electrons of opposite charge
 	mask_ee = (awk.num(samples.el_e) == 2) & (awk.sum(samples.el_charge,axis=1) == 0) 
