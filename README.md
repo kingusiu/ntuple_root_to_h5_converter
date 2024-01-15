@@ -46,7 +46,7 @@ Process: 410472 (???)
 
 The main function in the selection script is `select(samples:awk.highlevel.Array) -> awk.highlevel.Array`, which takes an Awkward Array of particle samples as input and returns a subset of events that pass certain selection criteria.
 
-### Invariant mass calculation of two-lepton system
+#### Invariant mass calculation of two-lepton system
 The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the x,y,z momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$) and energy.
 
 1. **Momentum Components:**
@@ -74,19 +74,36 @@ The selections are based on the invariant mass of two-electron and two-muon syst
      $$m_{ll} = \sum \sqrt(enrg^2 - mom2)$$
 
 
+#### Transverse momentum calculation of two-lepton system
+The selections are based on the transverse momentum of two-electron and two-muon systems. The calculation of the transverse momentum is based on the x and y momentum components ($px$, $py$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$).
+
+1. **Momentum Components:**
+   - Calculate the x, y, components of each lepton's momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
+     $$px = pt * \cos(\phi)$$
+     $$py = pt * \sin(\phi)$$
+
+2. **Dilepton Momentum**
+   - Sum over both leptons
+   $$\vec{p} = \[px \\ py]$$
+   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
+
+3. **Transverse Momentum:**
+     $$pt_{ll} = \sqrt(\vec{p_{ll}} \cdot \vec{p_{ll}})$$
+
+
 ### Selections
 
 The selections are:
 
-1. **Lepton Charge and Multiplicity: Two leptons of same flavor and opposite charge**
-   - Selects events with exactly two electrons of opposite charge (`mask_ee`) or two muons of opposite charge (`mask_mumu`).
-   - Excludes events with four leptons (`mask_4l`).
-
-2. **Z Invariant Mass Windows: $m_{ll}$ (electron or muon system) in 80-100 GeV**
+1. **Z Invariant Mass Windows: $m_{ll}$ (electron or muon system) in 80-100 GeV**
    - Applies invariant mass windows (80-100 GeV) to the electron- (`mask_ee_m`) resp. muon-system (`mask_mumu_m`) to select Z candidates.
 
-3. **Z transverse Momentum: $pt_{ll}$ (electron or muon system) > 50 GeV**
-   - Selects events with di-lepton transverse momentum above 50 GeV because of mismodeling issues below this value.
+2. **Z transverse Momentum: $pt_{ll}$ (electron or muon system) > 50 GeV**
+   - Selects events with di-lepton transverse momentum above 50 GeV of the electron- (`mask_ee_pt`) resp. muon-system (`mask_mumu_pt`) because of mismodeling issues below this value.
+
+3. **Lepton Charge and Multiplicity: Exactly two leptons of same flavor and opposite charge**
+   - Selects events with exactly two electrons of opposite charge (`mask_ee`) or two muons of opposite charge (`mask_mumu`).
+   - Excludes events with four leptons (`mask_4l`).
 
 4. **Jet Multiplicity:**
    - Requires at least one jet in the event (`awk.num(samples['jet_e']) >= 1`).
