@@ -56,11 +56,11 @@ The selections are based on the invariant mass of two-electron and two-muon syst
 2. **Dilepton Momentum**
    - Sum over both leptons
    $$\vec{p} = \[px \\ py \\ pz\]$$
-   $$ \sum_l \vec{p_l}$$
+   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
 
 2. **Momentum Magnitude:**
    - Compute the momentum of the system as dot product.
-     $$mom2 = \vec{p} \cdot \vec{p}$$
+     $$mom2 = \vec{p_{ll}} \cdot \vec{p_{ll}}$$
 
 3. **Energy Calculation:**
    - Determine the energy of the particle in the 3D space.
@@ -95,7 +95,7 @@ The main function in the selection script is `select(samples:awk.highlevel.Array
 
 The selections are:
 
-1. **Z Invariant Mass Windows: $m_{ll}$ (electron or muon system) in 80-100 GeV**
+1. **Z Invariant Mass Windows: $m_{ll}$ (electron or muon system) $\in$ 80-100 GeV**
    - Applies invariant mass windows (80-100 GeV) to the electron- (`mask_ee_m`) resp. muon-system (`mask_mumu_m`) to select Z candidates.
 
 2. **Z transverse Momentum: $pt_{ll}$ (electron or muon system) > 50 GeV**
