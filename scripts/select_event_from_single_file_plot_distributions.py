@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	samples_ee = read.read_samples_from_file(os.path.join(path_ee,fname_ee),feature_names)
 
 	# select electron samples
-	samples_selected_ee = sele.select_lightjet(samples_ee)
+	samples_selected_ee = sele.select_lightjets(samples_ee)
 
 	# read muon samples
 	path_mumu = glob.glob(os.path.join(stco.generator_in_dir_lightjet,'*'+stco.ds_ids['mumu'][0]+'*'))[0]
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 	samples_mumu = read.read_samples_from_file(os.path.join(path_mumu,fname_mumu),feature_names)
 
 	# select muon samples
-	samples_selected_mumu = sele.select_lightjet(samples_mumu)
+	samples_selected_mumu = sele.select_lightjets(samples_mumu)
 
 	#compute dilepton pt, invariant mass, px,py,pz
 	ele_m, mu_m = 511e-3, 105.7

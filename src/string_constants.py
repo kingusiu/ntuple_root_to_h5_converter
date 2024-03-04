@@ -17,7 +17,8 @@
 
 
 
-generator_in_dir_lightjet = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2/mc20_Run2/Ntuples/PeriodE/ZJets_MG'
+# generator_in_dir_lightjet = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/mc20_Run2/Ntuples_Nominal/PeriodE/ZJets_MG'
+generator_in_dir_lightjet = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/mc20_Run2/Ntuples_Nominal/PeriodA/MG/'
 
 generator_out_dir_lightjet = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib'
 

@@ -7,7 +7,7 @@ import src.reader as read
 import src.selection as sele
 
 
-def sample_generator(paths:List[str], N:int, feature_names):
+def sample_generator(paths:List[str], N:int, feature_names) -> awk.highlevel.Array:
     
     samples_concat = None
 
