@@ -30,7 +30,7 @@ if __name__ == '__main__':
 	# generate N di-electron samples
 	N = int(1e4)
 	path_ee = glob.glob(os.path.join(stco.generator_in_dir_lightjet,'*'+stco.ds_ids['ee'][0]+'*'))
-	generator_ee = gene.sample_generator(path_ee, N, feature_names)
+	generator_ee = gene.sample_generator(path_ee, N, feature_names, selection_fun=sele.select_lightjets)
 
 	samples_concat_ee = None
 	i = 0
@@ -103,4 +103,3 @@ if __name__ == '__main__':
 	# plot GN2 probability distributions muons
 	data = [awk.flatten(samples_concat_mumu[ff]) for ff in ['jet_GN2_pu', 'jet_GN2_pb', 'jet_GN2_pc']]
 	heplt.plot_feature_for_n_samples(data,ff_names,xlabel='prob mumu',plot_name='hist_gen_gn2_mumu',fig_dir=stco.results_fig_dir)
-
