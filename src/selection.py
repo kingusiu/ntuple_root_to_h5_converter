@@ -81,6 +81,8 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
     # at least one jet
     mask = mask & (awk.num(samples.jet_e) >= 1)
 
+    # retain leading pt jet
+
     return samples[mask]
 
 

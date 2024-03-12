@@ -7,7 +7,7 @@ import src.reader as read
 import src.selection as sele
 
 
-def sample_generator(paths:List[str], N:int, selection_fun:Callable, feature_names:List[str] = None) -> awk.highlevel.Array:
+def sample_generator(paths:List[str], N:int, selection_fun:Callable, feature_names_in:List[str] = None, feature_names_out:List[str] = None) -> awk.highlevel.Array:
     """Summary
     
     Args:
@@ -36,9 +36,9 @@ def sample_generator(paths:List[str], N:int, selection_fun:Callable, feature_nam
         while(len(samples_concat) >= N):
             samples_batch = samples_concat[:N]
             samples_concat = samples_concat[N:]
-            yield samples_batch
+            yield samples_batch[feature_names_out] if feature_names_out else samples_batch
 
         # if data left, yield it
         if len(samples_concat) > 0:
-            yield samples_concat
+            yield samples_concat[feature_names_out] if feature_names_out else samples_concat
 
