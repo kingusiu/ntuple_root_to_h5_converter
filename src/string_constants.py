@@ -19,13 +19,19 @@ import os
 # ************************* INPUTS ************************** #
 
 # root input directory
-in_dir_root = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/'
+in_dir_root = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/mc20_Run2/Ntuples_Nominal/'
 
-# input directory for run 2 mc (signal and background samples)
-in_dir_mc_run2 = os.path.join(in_dir_root,'mc20d')
+# input directory for run 2 mc 2017 Period D (signal and background samples)
+in_dir_mc_run2_D = os.path.join(in_dir_root,'PeriodD')
 
-# input directory data run 2 / 2017 (period D)
-in_dir_data_run2 = os.path.join(in_dir_root,'dataRun2_daod_ftag2/user.ltoffoli.data17_13T.periodAllYear.physics_Main.PhysCont.D_FTAG2.grp17_v01_p5981.GN2v01_Nom_output.root')
+# atm only period D
+dir_dict_mc_run2 = {
+    
+        'sig_mg' : os.path.join(in_dir_mc_run2_D,'MG'), # signal samples by MG 
+        'sig_sh' : os.path.join(in_dir_mc_run2_D,'SH'), # signal samples by Sherpa
+        'bg' : os.path.join(in_dir_mc_run2_D,'Other'), # background samples: Sherpa diboson and PhPy ttbar dilepton 
+
+}
 
 
 # ************************* OUTPUTS ************************** #

@@ -19,9 +19,11 @@ def sample_generator(paths:List[str], N:int, selection_fun:Callable, feature_nam
     Yields:
         awk.highlevel.Array: N selected events at each iteration
     """
+
+    if type(paths) == str: paths = [paths]
     samples_concat = None
 
-    for next_chunk in uproot.iterate([pp+'/*.root:nominal' for pp in paths],feature_names):
+    for next_chunk in uproot.iterate([pp+'/*.root:nominal' for pp in paths],feature_names_in):
 
         #print(len(next_chunk))
 
