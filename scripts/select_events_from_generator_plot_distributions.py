@@ -24,8 +24,11 @@ def compute_dilepton_pt_m_pxpypz(pt, eta, phi, part_m):
 
 if __name__ == '__main__':
 
-	feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi','mu_phi',\
-                      'el_eta', 'mu_eta', 'jet_e', 'jet_GN2_pu', 'jet_GN2_pb', 'jet_GN2_pc']
+	feature_in_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi','mu_phi',\
+                    'el_eta', 'mu_eta', 'jet_e', 'jet_pt', 'jet_truthflav',\
+                	'weight_mc', 'weight_pileup', 'weight_jvt', 'weight_leptonSF']
+    feature_out_names = ['jet_pt_lead','jet_truthflav',\
+                	'weight_mc', 'weight_pileup', 'weight_jvt', 'weight_leptonSF']
 	
 	# generate N di-electron samples
 	N = int(1e4)

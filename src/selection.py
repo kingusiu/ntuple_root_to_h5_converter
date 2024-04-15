@@ -31,7 +31,7 @@ def calc_dilepton_pt(pt:awk.highlevel.Array, eta:awk.highlevel.Array, phi:awk.hi
     return np.sqrt(px**2 + py**2)
 
 
-def drop_non_leading_pt_jet_features(samples:awk.highlevel.Array) -> :awk.highlevel.Array
+def drop_non_leading_pt_jet_features(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
     jet_fields = [field for field in samples.fields if 'jet_' in field]
     leading_jet_mask = awk.argmax(samples['jet_pt'],axis=1,keepdims=True)
@@ -43,6 +43,8 @@ def drop_non_leading_pt_jet_features(samples:awk.highlevel.Array) -> :awk.highle
 
 
 def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
+
+    # required features: jet_pt, jet_e, el_pt, el_eta, el_phi, el_charge, mu_pt, mu_eta, mu_phi, mu_charge
 
     # retain leading pt jet
     samples = drop_non_leading_pt_jet_features(samples)

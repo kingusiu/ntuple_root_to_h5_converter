@@ -18,7 +18,9 @@ if __name__ == '__main__':
 	feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi','mu_phi',\
                       'el_eta', 'mu_eta', 'jet_pt', 'jet_e', 'jet_GN2_pu', 'jet_GN2_pb', 'jet_GN2_pc']
 
-	### read MC (signal and background)
+	# *********************************************************** #
+	#              		   READ MC (SIG & BG)                     #
+	# *********************************************************** #
 
 	## signal (one file per ee, mumu, tautau)
 	
@@ -73,7 +75,28 @@ if __name__ == '__main__':
 	samples_zz = sele.select_lightjets(samples_zz)
 	samples_zw = sele.select_lightjets(samples_wqqzll)
 
-	# split signal samples into z+lightjet, z+bjet and z+cjet
+
+
+	# *********************************************************** #
+	#                 SPLIT SIGNAL BY JET FLAVOR                  #
+	# *********************************************************** #
+	## split signal samples by jet flavor z+lightjet, z+bjet and z+cjet
+
+	# Z+lightjets
+	light_mask = awk.flatten(samples_sig.jet_truthflav_lead == stco.JET_U)
+	ZplusLight = samples_sig[light_mask]
+
+	# Z+c-jets
+	charm_mask = awk.flatten(samples_sig.jet_truthflav_lead == stco.JET_C)
+	ZplusC = samples_sig[charm_mask]
+
+	# Z+b-jets
+	b_mask = awk.flatten(samples_sig.jet_truthflav_lead == stco.JET_B)
+	ZplusB = samples_sig[b_mask]
+
+	# Z+tau-jets
+	tau_mask = awk.flatten(samples_sig.jet_truthflav_lead == stco.JET_T)
+	ZplusTau = samples_sig[tau_mask]
 
 
 	# plot as stacked histogram
