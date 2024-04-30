@@ -19,10 +19,11 @@ Production Period: Run2, MC20
 | Option | Choice | Path-suffix |
 | --- | ----------- | ----------- |
 | SW release | Release 24, GN2 | Rel24_GN2 |
-| Period | E ('18)| PeriodE | 
+| Period | D ('17)| PeriodD |
+| MC Campain | mc20 | r13144 |
 | Process | Z+Jets | ZJets |
 | Final state | 2 leptons | see decay table below|
-| Generator | Madgraph | MG |
+
 
 #### Decays
 
