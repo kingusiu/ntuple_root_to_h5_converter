@@ -112,6 +112,11 @@ The selections are:
    - Combines all the individual masks to obtain the final selection (`mask`).
    - Applies the selection to the input samples, returning a subset of events.
 
+### Leading Jet Augmentation
+
+   find the leading pt jet in each event and add corresponding fields `'jet_pt_lead','jet_truthflav_lead', 'jet_e_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead'`
+
+
 ### Usage
 
 To use this event selection script, you can call the `select` function with your dataset represented as an Awkward Array.
