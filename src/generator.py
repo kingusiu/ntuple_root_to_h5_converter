@@ -3,18 +3,20 @@ import uproot
 from typing import List, Callable
 import awkward as awk
 
-import src.reader as read
-import src.selection as sele
+import sys
+sys.path.append('../src/')
 
 
-def sample_generator(paths:List[str], N:int, selection_fun:Callable, feature_names_in:List[str] = None, feature_names_out:List[str] = None) -> awk.highlevel.Array:
+def sample_generator(paths:List[str], N:int, selection_fun:Callable, \
+    feature_names_in:List[str] = None, feature_names_out:List[str] = None) -> awk.highlevel.Array:
     """Summary
     
     Args:
         paths (List[str]): list of directories containing root files
         N (int): batch size
         selection_fun (Callable): selections to be applied
-        feature_names (List[str]): features to be read
+        feature_names_in (List[str]): features to be read
+        feature_names_out (List[str]): features to be returned
     
     Yields:
         awk.highlevel.Array: N selected events at each iteration

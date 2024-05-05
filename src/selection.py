@@ -31,13 +31,13 @@ def calc_dilepton_pt(pt:awk.highlevel.Array, eta:awk.highlevel.Array, phi:awk.hi
     return np.sqrt(px**2 + py**2)
 
 
-def drop_non_leading_pt_jet_features(samples:awk.highlevel.Array) -> awk.highlevel.Array:
+def add_leading_pt_jet_features(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
     jet_fields = [field for field in samples.fields if 'jet_' in field]
     leading_jet_mask = awk.argmax(samples['jet_pt'],axis=1,keepdims=True)
 
     for jet_field in jet_fields:
-        samples[jet_field+'_lead'] = samples[jet_field][leading_jet_mask] # cant overwrite fields -> check
+        samples[jet_field+'_lead'] = np.array(awk.flatten(samples[jet_field][leading_jet_mask])) # cant overwrite fields -> check
 
     return samples
 
@@ -46,8 +46,12 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
     # required features: jet_pt, jet_e, el_pt, el_eta, el_phi, el_charge, mu_pt, mu_eta, mu_phi, mu_charge
 
+    # at least one je
+    mask = awk.num(samples.jet_e) >= 1
+    samples = samples[mask]
+
     # retain leading pt jet
-    samples = drop_non_leading_pt_jet_features(samples)
+    samples = add_leading_pt_jet_features(samples)
 
     # z mass window [MeV]
     z_m_min, z_m_max = 80e3, 100e3
@@ -94,8 +98,6 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
     # 2 electrons or 2 muons with Z invariant mass
     mask = mask_ee | mask_mumu
 
-    # at least one jet
-    mask = mask & (awk.num(samples.jet_e) >= 1)
 
     return samples[mask]
 
