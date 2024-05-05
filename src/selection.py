@@ -46,7 +46,7 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
     # required features: jet_pt, jet_e, el_pt, el_eta, el_phi, el_charge, mu_pt, mu_eta, mu_phi, mu_charge
 
-    # at least one je
+    # at least one jet
     mask = awk.num(samples.jet_e) >= 1
     samples = samples[mask]
 
@@ -66,10 +66,10 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
     # compute invariant mass of muons
     mumu_m = calc_invariant_mass(samples.mu_pt, samples.mu_eta, samples.mu_phi, part_m=mu_m)
 
-    # invariant mass of electrons 80-100 GeV
+    # invariant mass of electrons is in Z boson window 80-100 GeV
     mask_ee_m = (ee_m > z_m_min) & (ee_m < z_m_max)
 
-    # invariant mass of muons 80-100 GeV
+    # invariant mass of muons is in Z boson window 80-100 GeV
     mask_mumu_m = (mumu_m > z_m_min) & (mumu_m < z_m_max)
 
     # di-electron pt
@@ -97,7 +97,6 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
 
     # 2 electrons or 2 muons with Z invariant mass
     mask = mask_ee | mask_mumu
-
 
     return samples[mask]
 
