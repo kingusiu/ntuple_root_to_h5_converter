@@ -131,3 +131,23 @@ samples = ...
 
 # Apply event selection
 selected_samples = select(samples)
+```
+
+## III Normalisation of MC to the integrated luminosity (MC event weight calculation)
+
+Each MC events is weighted by a weight $w$ computed as
+
+$$w = \frac{\mathcal{L}_{\sigma}}{N\mathrm{MCevt}}$$
+
+### Part 1: Compute Monte Carlo Event Weights for each DSID Sample
+The function `compute_mc_weights_forall_dsid()` iterates through all DSID (Dataset ID) samples and calculates the sum of the `totalEventsWeighted` variable over all branches in all files corresponding to each DSID sample. 
+
+$$N_{\text{MCevt}} = \sum_{\substack{all files i \\ for dsid}} \sum_{\text{all branches j \\ in file i}} \text{totalEventsWeighted}_{ij}$$
+
+This sum represents the Monte Carlo luminosity scale factor for each DSID sample.
+
+### Part 2: Compute Monte Carlo Event Weights for Each Sample
+The function `compute_mc_event_weights(samples:awk.highlevel.Array) -> np.ndarray` computes the Monte Carlo weight for each event of a sample. It multiplies the `weight_mc`, `weight_pileup`, `weight_jvt`, and `weight_leptonSF` variables for each event.
+
+### Part 3: Compute Final Event Weight
+Finally, the weight for each event is computed as the product of the Monte Carlo luminosity scale factor for the corresponding DSID sample and the Monte Carlo event weight. This is added as a feature 'wt' to the samples.
