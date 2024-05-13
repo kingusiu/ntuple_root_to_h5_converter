@@ -162,8 +162,10 @@ where
 >
 > w_lSF:
 > : The weight applied based on lepton scale factor information.
+>
 
-The function `compute_mc_event_weights(samples:awk.highlevel.Array) -> np.ndarray` computes the Monte Carlo weight for each event of a sample. It multiplies the `weight_mc`, `weight_pileup`, `weight_jvt`, and `weight_leptonSF` variables and returns $w_\mathrm{evt}$.
+$w_\mathrm{evt}$ is computed by the function `compute_w_evt(samples:awk.highlevel.Array) -> np.ndarray` of `utils.py`.
+
 
 ### w_dsid: MC weight per DSID
 The `dsid` weight $w_\mathrm{dsid}$ is computed as 
@@ -180,6 +182,8 @@ where
 > 
 > - $N_\mathrm{MC}$:
 > : The number of Monte Carlo events.
+
+$w_\mathrm{dsid}$ is computed by the function `compute_w_dsid(dsid:string) -> float` of `utils.py`.
 
 The number of MC events is calculated from all sample files for a dsid as
 
