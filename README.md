@@ -137,12 +137,18 @@ selected_samples = select(samples)
 
 Each MC events is weighted by a weight $w$ computed as
 
-$$w = \frac{\mathcal{L}_{\sigma}}{N\mathrm{MCevt}}$$
+
+```math
+w = \frac{\mathcal{L} \cdot {\sigma}}{N\mathrm{MCevt}}
+```
+
 
 ### Part 1: Compute Monte Carlo Event Weights for each DSID Sample
 The function `compute_mc_weights_forall_dsid()` iterates through all DSID (Dataset ID) samples and calculates the sum of the `totalEventsWeighted` variable over all branches in all files corresponding to each DSID sample. 
 
-$$N_{\text{MCevt}} = \sum_{\substack{all files i \\ for dsid}} \sum_{\text{all branches j \\ in file i}} \text{totalEventsWeighted}_{ij}$$
+```math
+N_{\text{MCevt}} = \sum_{\substack{all files i \\ for dsid}} \sum_{\text{all branches j \\ in file i}} \text{totalEventsWeighted}_{ij}
+```
 
 This sum represents the Monte Carlo luminosity scale factor for each DSID sample.
 
