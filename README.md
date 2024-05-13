@@ -135,25 +135,62 @@ selected_samples = select(samples)
 
 ## III Normalisation of MC to the integrated luminosity (MC event weight calculation)
 
-Each MC events is weighted by a weight $w$ computed as
-
-
-```math
-w = \frac{\mathcal{L} \cdot {\sigma}}{N\mathrm{MCevt}}
-```
-
-
-### Part 1: Compute Monte Carlo Event Weights for each DSID Sample
-The function `compute_mc_weights_forall_dsid()` iterates through all DSID (Dataset ID) samples and calculates the sum of the `totalEventsWeighted` variable over all branches in all files corresponding to each DSID sample. 
+Each MC event is weighted by a weight $w$ computed as
 
 ```math
-N_{\text{MCevt}} = \sum_{\substack{all files i \\ for dsid}} \sum_{\text{all branches j \\ in file i}} \text{totalEventsWeighted}_{ij}
+   w = w_\mathrm{evt} \cdot w_\mathrm{dsid}
 ```
 
-This sum represents the Monte Carlo luminosity scale factor for each DSID sample.
+### w_evt: MC weight per event
 
-### Part 2: Compute Monte Carlo Event Weights for Each Sample
-The function `compute_mc_event_weights(samples:awk.highlevel.Array) -> np.ndarray` computes the Monte Carlo weight for each event of a sample. It multiplies the `weight_mc`, `weight_pileup`, `weight_jvt`, and `weight_leptonSF` variables for each event.
+The event weight is computed as 
 
-### Part 3: Compute Final Event Weight
-Finally, the weight for each event is computed as the product of the Monte Carlo luminosity scale factor for the corresponding DSID sample and the Monte Carlo event weight. This is added as a feature 'wt' to the samples.
+```math
+   w_\mathrm{evt} = w_{\text{mc}} \times w_{\text{pu}} \times w_{\text{jvt}} \times w_{\text{lSF}}
+```
+
+where
+
+> w_mc:
+> : The weight associated with Monte Carlo simulations.
+>
+> w_pu:
+> : The weight used to account for pileup effects.
+>
+> w_jvt:
+> : The weight applied based on Jet Vertex Tagger information.
+>
+> w_lSF:
+> : The weight applied based on lepton scale factor information.
+
+The function `compute_mc_event_weights(samples:awk.highlevel.Array) -> np.ndarray` computes the Monte Carlo weight for each event of a sample. It multiplies the `weight_mc`, `weight_pileup`, `weight_jvt`, and `weight_leptonSF` variables and returns $w_\mathrm{evt}$.
+
+### w_dsid: MC weight per DSID
+The `dsid` weight $w_\mathrm{dsid}$ is computed as 
+```math
+w_\mathrm{dsid} = \frac{\mathcal{L} \cdot \sigma}{N_\mathrm{MC}}
+```
+where 
+
+> - $\mathcal{L}$:
+> : The integrated luminosity corresponding to the MC campaign.
+> 
+> - $\sigma$:
+> : The cross-section of the simulated MC process.
+> 
+> - $N_\mathrm{MC}$:
+> : The number of Monte Carlo events.
+
+The number of MC events is calculated from all sample files for a dsid as
+
+```math
+N_{\text{MC}} = \sum_{\substack{all files i \\ for dsid}} \sum_{\substack{all branches j \\ in file i}} \text{totalEventsWeighted}_{ij}
+```
+The $N_{\text{MC}}$ values for each dsid are stored in the dictionary `sow_dd` in `string_constants.py`.
+
+The cross section $\sigma$ of the MC process is calculated as the product of the k-factor and the generator cross-section (per dsid)
+
+```math   
+   \sigma = k \cdot \sigma_{\mathrm{dsid}}
+```
+The values for each dsid are stored in the dictionary `scale_factors` in `string_constants.py`.
