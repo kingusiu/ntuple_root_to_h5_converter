@@ -47,7 +47,16 @@ def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='j
 	return [samples_light, samples_non_light]
 
 
-def compute_mc_event_weights(samples:awk.highlevel.Array) -> np.ndarray:
+# *********************************************************** #
+#     					MC weighting	    			      #
+# *********************************************************** #
+
+def compute_w_evt(samples:awk.highlevel.Array) -> np.ndarray:
 
 	return np.array(samples.weight_mc*samples.weight_pileup*samples.weight_jvt*samples.weight_leptonSF)
+
+
+def compute_w_dsid(dsid:string) -> float:
+
+	return stco.lumi * (stco.scale_factors[dsid]['xsec'] * stco.scale_factors[dsid]['k']) / sow_dd[dsid]
 
