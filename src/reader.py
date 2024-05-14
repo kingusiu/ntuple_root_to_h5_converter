@@ -3,7 +3,17 @@
 import numpy as np
 import uproot
 import awkward as awk
+import glob
 from typing import List
+
+import sys
+sys.path.append('../src/')
+
+import src.selection as sele
+import src.string_constants as stco
+import src.generator as gene
+
+
 
 def read_samples_from_file(file_path:str, feature_names:List[str]) -> awk.highlevel.Array:
     """read features of samples in file
@@ -19,3 +29,24 @@ def read_samples_from_file(file_path:str, feature_names:List[str]) -> awk.highle
     tree = uproot.open(file_path+':nominal')
 
     return tree.arrays(feature_names)
+
+
+def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, N:int=None) -> awk.highlevel.Array:
+
+    dsid_root_dir = glob.glob(os.path.join(stco.in_dir_mc,'*'+dsid+'*'))[0]
+    file_paths = [os.path.join(dsid_root_dir, ff) for ff in os.listdir(dsid_root_dir)]
+
+    samples_concat = None
+
+    for file_path in file_paths:
+
+        if samples_concat is None:
+            samples_concat = read_samples_from_file(file_path, feature_names)
+        else:
+            sample_batch = read_samples_from_file(file_path, feature_names)
+            samples_concat = awk.concatenate([samples_concat,sample_batch])
+
+    print(f'{len(samples_concat)} samples read for dsid {dsid}')
+
+    return samples_concat
+
