@@ -1,4 +1,4 @@
-# Generation of Samples for Light-jet and b-jet Calibration
+# Generation of Samples for Light-jet (and b-jet) Calibration
 
 This repository contains a Python script for converting a raw root dataset to a light-jet enriched dataset for light-calibration. The script reads events in root-format, filters them based on light-jet criteria (see below) and saves them in numpy/h5 format.
 
@@ -41,53 +41,9 @@ For example, reading a file of Run2 Madgraph MC for b-triggered Z+jet events dec
 
 ### ad 2. B-jets:
 
-Process: 410472 (???)
-
-## II. Kinematics Calculations
-
-### Invariant mass calculation of two-lepton system
-The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the x,y,z momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$) and energy.
-
-1. **Momentum Components:**
-   - Calculate the x, y, and z components of each lepton's momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
-     $$px = pt * \cos(\phi)$$
-     $$py = pt * \sin(\phi)$$
-     $$pz = pt * \sinh(\eta)$$
-
-2. **Dilepton Momentum**
-   - Sum over both leptons
-   $$\vec{p} = \[px \\ py \\ pz\]$$
-   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
-
-2. **Momentum Magnitude:**
-   - Compute the momentum of the system as dot product.
-     $$mom2 = \vec{p_{ll}} \cdot \vec{p_{ll}}$$
-
-3. **Energy Calculation:**
-   - Determine the energy of the particle in the 3D space.
-     $$enrg = \sqrt((pt * \cosh(\eta))^2 + part_m^2)$$
-     where part_m is the particle mass (511e-3 MeV for the electron, 105.7MeV for the muon)
-
-4. **Invariant Mass Calculation:**
-   - Utilize the energy and momentum components to calculate the invariant mass for each event.
-     $$m_{ll} = \sum \sqrt(enrg^2 - mom2)$$
+TODO
 
 
-### Transverse momentum calculation of two-lepton system
-The selections are based on the transverse momentum of two-electron and two-muon systems. The calculation of the transverse momentum is based on the x and y momentum components ($px$, $py$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$).
-
-1. **Momentum Components:**
-   - Calculate the x, y, components of each lepton's momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
-     $$px = pt * \cos(\phi)$$
-     $$py = pt * \sin(\phi)$$
-
-2. **Dilepton Momentum**
-   - Sum over both leptons
-   $$\vec{p} = \[px \\ py]$$
-   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
-
-3. **Transverse Momentum:**
-     $$pt_{ll} = \sqrt(\vec{p_{ll}} \cdot \vec{p_{ll}})$$
 
 ## II. Event Selection
 
@@ -116,6 +72,52 @@ The selections are:
 ### Leading Jet Augmentation
 
    find the leading pt jet in each event and add corresponding fields `'jet_pt_lead','jet_truthflav_lead', 'jet_e_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead'`
+
+### Kinematics Calculations
+
+#### Invariant mass calculation of two-lepton system
+The selections are based on the invariant mass of two-electron and two-muon systems. The calculation of the invariant mass is based on the x,y,z momentum components ($px$, $py$ and $pz$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$) and energy.
+
+1. **Momentum Components:**
+   - Calculate the x, y, and z components of each lepton's momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
+     $$px = pt * \cos(\phi)$$
+     $$py = pt * \sin(\phi)$$
+     $$pz = pt * \sinh(\eta)$$
+
+2. **Dilepton Momentum**
+   - Sum over both leptons
+   $$\vec{p} = \[px \\ py \\ pz\]$$
+   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
+
+2. **Momentum Magnitude:**
+   - Compute the momentum of the system as dot product.
+     $$mom2 = \vec{p_{ll}} \cdot \vec{p_{ll}}$$
+
+3. **Energy Calculation:**
+   - Determine the energy of the particle in the 3D space.
+     $$enrg = \sqrt((pt * \cosh(\eta))^2 + part_m^2)$$
+     where part_m is the particle mass (511e-3 MeV for the electron, 105.7MeV for the muon)
+
+4. **Invariant Mass Calculation:**
+   - Utilize the energy and momentum components to calculate the invariant mass for each event.
+     $$m_{ll} = \sum \sqrt(enrg^2 - mom2)$$
+
+
+#### Transverse momentum calculation of two-lepton system
+The selections are based on the transverse momentum of two-electron and two-muon systems. The calculation of the transverse momentum is based on the x and y momentum components ($px$, $py$ calculated from transvere momentum $pt$ and angles $\eta$ and $\phi$).
+
+1. **Momentum Components:**
+   - Calculate the x, y, components of each lepton's momentum from the transverse momentum $pt$ and angles $\eta$ and $\phi$.
+     $$px = pt * \cos(\phi)$$
+     $$py = pt * \sin(\phi)$$
+
+2. **Dilepton Momentum**
+   - Sum over both leptons
+   $$\vec{p} = \[px \\ py]$$
+   $$\vec{p_{ll}} = \sum_l \vec{p_l}$$
+
+3. **Transverse Momentum:**
+     $$pt_{ll} = \sqrt(\vec{p_{ll}} \cdot \vec{p_{ll}})$$
 
 
 ### Usage
