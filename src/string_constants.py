@@ -40,7 +40,7 @@ feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi'
                     'el_eta', 'mu_eta', 'jet_e', 'jet_eta', 'jet_pt', 'jet_truthflav',\
                     'weight_mc', 'weight_pileup', 'weight_jvt', 'weight_leptonSF']
 
-
+feature_names_dat = feature_names[:-5] # no truth or weight features
 
 # *********************************************************** #
 #                           IN/OUT DATA                       #

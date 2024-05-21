@@ -10,10 +10,14 @@ from typing import List
 import sys
 sys.path.append('../src/')
 
+from heputl import logging as heplog
+
 import src.selection as sele
 import src.string_constants as stco
 import src.generator as gene
 
+
+logger = heplog.get_logger(__name__)
 
 
 def read_samples_from_file(file_path:str, feature_names:List[str]) -> awk.highlevel.Array:
@@ -54,3 +58,25 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
 
     return samples_concat[:N]
 
+
+def read_data_samples(N:int=None) -> awk.highlevel.Array:
+
+    N_batch = int(1e3)
+    N_total = N
+    generator_ee = gene.sample_generator(stco.in_dir_data, N=N_batch, selection_fun=sele.select_lightjets, feature_names_in=stco.feature_names_dat)
+
+    samples_concat = None
+
+    for sample_batch in generator_ee:
+
+        if samples_concat is None:
+            samples_concat = sample_batch
+        else:
+            samples_concat = awk.concatenate([samples_concat,sample_batch])
+
+        if N_total and len(samples_concat) >= N_total:
+            break
+
+    logger.info(f'{len(samples_concat)} data samples read')
+
+    return samples_concat

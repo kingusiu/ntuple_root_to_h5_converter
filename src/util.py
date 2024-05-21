@@ -32,6 +32,10 @@ def split_by_jet_flavor(samples:awk.highlevel.Array, jet_truth_var:str='jet_trut
 	return [ZplusLight,ZplusC,ZplusB,ZplusTau]
 
 
+# *********************************************************** #
+#     					  MC clasing	    			      #
+# *********************************************************** #
+
 def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
 	# *********************************************************** #
 	#     SPLIT SIGNAL INTO LIGHT and NON-LIGHT JET EVENTS        #
@@ -45,6 +49,23 @@ def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='j
 	samples_non_light = samples[~light_mask]
 
 	return [samples_light, samples_non_light]
+
+
+def split_into_ttbar_zz_wz(samples:awk.highlevel.Array) -> tuple[awk.highlevel.Array]:
+	"""split samples into ttbar, zz-diboson and wz-diboson events
+	
+	Args:
+	    samples (awk.highlevel.Array): input samples containing 'dsid' field
+	
+	Returns:
+	    tuple[awk.highlevel.Array]: triple of ttbar, zz, wz
+	"""
+	tt_mask = samples.dsid == '410472'
+	zz_mask = (samples.dsid == '363356') | (samples.dsid == '364302') # 'ggZllZqq', 'zqqzll'
+	wz_mask = samples.dsid == '363358' # 'wqqzll'
+
+	return samples[tt_mask], samples[zz_mask], samples[wz_mask] 
+
 
 
 # *********************************************************** #
