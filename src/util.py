@@ -6,7 +6,7 @@ import ntuple_root_to_h5_converter.src.string_constants as stco
 
 
 
-def split_by_jet_flavor(samples:awk.highlevel.Array,jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
+def split_by_jet_flavor(samples:awk.highlevel.Array, jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
 	# *********************************************************** #
 	#                 SPLIT SIGNAL BY JET FLAVOR                  #
 	# *********************************************************** #
@@ -56,7 +56,13 @@ def compute_w_evt(samples:awk.highlevel.Array) -> np.ndarray:
 	return np.array(samples.weight_mc*samples.weight_pileup*samples.weight_jvt*samples.weight_leptonSF)
 
 
-def compute_w_dsid(dsid:string) -> float:
+def compute_w_dsid(dsid:str) -> float:
 
-	return stco.lumi * (stco.scale_factors[dsid]['xsec'] * stco.scale_factors[dsid]['k']) / sow_dd[dsid]
+	return stco.lumi * (stco.scale_factors[dsid]['xsec'] * stco.scale_factors[dsid]['k']) / stco.sow_dd[dsid]
+
+
+def compute_w_samples(samples:awk.highlevel.Array, dsid:str) -> awk.highlevel.Array:
+
+	return compute_w_evt(samples) * compute_w_dsid(dsid)
+
 

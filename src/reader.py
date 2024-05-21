@@ -4,6 +4,7 @@ import numpy as np
 import uproot
 import awkward as awk
 import glob
+import os
 from typing import List
 
 import sys
@@ -36,6 +37,8 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
     dsid_root_dir = glob.glob(os.path.join(stco.in_dir_mc,'*'+dsid+'*'))[0]
     file_paths = [os.path.join(dsid_root_dir, ff) for ff in os.listdir(dsid_root_dir)]
 
+    print(f'reading samples for dsid {dsid} from {dsid_root_dir}')
+
     samples_concat = None
 
     for file_path in file_paths:
@@ -46,7 +49,8 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
             sample_batch = read_samples_from_file(file_path, feature_names)
             samples_concat = awk.concatenate([samples_concat,sample_batch])
 
-    print(f'{len(samples_concat)} samples read for dsid {dsid}')
+        if N and len(samples_concat) >= N:
+            return samples_concat[:N]
 
-    return samples_concat
+    return samples_concat[:N]
 

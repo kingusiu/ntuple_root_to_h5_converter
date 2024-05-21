@@ -37,7 +37,7 @@ ds_ids_all = list(ds_ids_bg.values()) + sum(list(ds_ids_sig.values()),[])
 JET_U, JET_C, JET_B, JET_T = 0, 4, 5, 15
 
 feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi','mu_phi',\
-                    'el_eta', 'mu_eta', 'jet_e', 'jet_pt', 'jet_truthflav',\
+                    'el_eta', 'mu_eta', 'jet_e', 'jet_eta', 'jet_pt', 'jet_truthflav',\
                     'weight_mc', 'weight_pileup', 'weight_jvt', 'weight_leptonSF']
 
 
@@ -68,9 +68,6 @@ out_dir_data = '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib'
 # *********************************************************** #
 
 results_fig_dir = 'results/fig'
-
-
-
 
 
 # *********************************************************** #
