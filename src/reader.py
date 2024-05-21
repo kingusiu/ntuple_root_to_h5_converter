@@ -79,4 +79,4 @@ def read_data_samples(N:int=None) -> awk.highlevel.Array:
 
     logger.info(f'{len(samples_concat)} data samples read')
 
-    return samples_concat
+    return samples_concat[:N]
