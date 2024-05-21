@@ -43,6 +43,19 @@ For example, reading a file of Run2 Madgraph MC for b-triggered Z+jet events dec
 
 TODO
 
+### Reading and Generating Samples
+
+#### Reader
+
+Read samples for a `dsid` with ``reader.py
+
+```python
+
+import src.reader as read
+
+dsid = ...
+samples = read.read_samples_for_dsid(dsid)
+```
 
 
 ## II. Event Selection
@@ -128,11 +141,15 @@ To use this event selection script, you can call the `select` function with your
 import numpy as np
 import awkward as awk
 
-# Load your dataset (replace with actual dataset loading)
-samples = ...
+import src.reader as read
+import src.selection as sele
+
+# Load dataset
+dsid = ...
+samples = read.read_samples_for_dsid(dsid)
 
 # Apply event selection
-selected_samples = select(samples)
+selected = sele.select_lightjets(samples)
 ```
 
 ## III Normalisation of MC to the integrated luminosity (MC event weight calculation)
