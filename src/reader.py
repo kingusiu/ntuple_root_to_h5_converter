@@ -41,11 +41,13 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
     dsid_root_dir = glob.glob(os.path.join(stco.in_dir_mc,'*'+dsid+'*'))[0]
     file_paths = [os.path.join(dsid_root_dir, ff) for ff in os.listdir(dsid_root_dir)]
 
-    print(f'reading samples for dsid {dsid} from {dsid_root_dir}')
+    logger.info(f'reading samples for dsid {dsid} from {dsid_root_dir}')
 
     samples_concat = None
 
     for file_path in file_paths:
+
+        if 'user.ltoffoli.37305915._000003.output.root' in file_path: continue
 
         if samples_concat is None:
             samples_concat = read_samples_from_file(file_path, feature_names)
@@ -61,7 +63,7 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
 
 def read_data_samples(N:int=None) -> awk.highlevel.Array:
 
-    N_batch = int(1e3)
+    N_batch = int(1e4)
     N_total = N
     generator_ee = gene.sample_generator(stco.in_dir_data, N=N_batch, selection_fun=sele.select_lightjets, feature_names_in=stco.feature_names_dat)
 
