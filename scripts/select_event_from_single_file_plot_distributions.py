@@ -16,7 +16,7 @@ import src.selection as sele
 
 def compute_dilepton_pt_m_pxpypz(pt, eta, phi, part_m):
 
-	mass = sele.calc_invariant_mass(pt, eta, phi, part_m=part_m)
+	mass = sele.calc_dilepton_mass(pt, eta, phi, part_m=part_m)
 	pt_ll = sele.calc_dilepton_pt(pt, eta, phi)
 	px, py, pz = sele.calc_dilepton_px_py_pz(pt, eta, phi)
 
@@ -45,15 +45,14 @@ if __name__ == '__main__':
 	# select muon samples
 	samples_selected_mumu = sele.select_lightjets(samples_mumu)
 
-	#compute dilepton pt, invariant mass, px,py,pz
-	ele_m, mu_m = 511e-3, 105.7
+	# compute dilepton pt, invariant mass, px,py,pz
 	
-	# compute additional features of electrons
-	mass, pt, px, py, pz = compute_dilepton_pt_m_pxpypz(samples_selected_ee.el_pt, samples_selected_ee.el_eta, samples_selected_ee.el_phi, ele_m)
+	## compute additional features of electrons
+	mass, pt, px, py, pz = compute_dilepton_pt_m_pxpypz(samples_selected_ee.el_pt, samples_selected_ee.el_eta, samples_selected_ee.el_phi, stco.ele_m)
 	samples_selected_ee['ee_m'], samples_selected_ee['ee_pt'], samples_selected_ee['ee_px'], samples_selected_ee['ee_py'], samples_selected_ee['ee_pz'] = mass, pt, px, py, pz
 
-	# compute additional features of muons
-	mass, pt, px, py, pz = compute_dilepton_pt_m_pxpypz(samples_selected_mumu.mu_pt, samples_selected_mumu.mu_eta, samples_selected_mumu.mu_phi, mu_m)
+	## compute additional features of muons
+	mass, pt, px, py, pz = compute_dilepton_pt_m_pxpypz(samples_selected_mumu.mu_pt, samples_selected_mumu.mu_eta, samples_selected_mumu.mu_phi, stco.mu_m)
 	samples_selected_mumu['mumu_m'], samples_selected_mumu['mumu_pt'], samples_selected_mumu['mumu_px'], samples_selected_mumu['mumu_py'], samples_selected_mumu['mumu_pz'] = mass, pt, px, py, pz
 
 	# plot distributions

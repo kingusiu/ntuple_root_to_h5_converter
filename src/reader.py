@@ -8,7 +8,7 @@ import os
 from typing import List
 
 import sys
-sys.path.append('../src/')
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from heputl import logging as heplog
 
@@ -47,8 +47,6 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
 
     for file_path in file_paths:
 
-        if 'user.ltoffoli.37305915._000003.output.root' in file_path: continue
-
         if samples_concat is None:
             samples_concat = read_samples_from_file(file_path, feature_names)
         else:
@@ -61,9 +59,8 @@ def read_samples_for_dsid(dsid:str, feature_names:List[str]=stco.feature_names, 
     return samples_concat[:N]
 
 
-def read_data_samples(N:int=None) -> awk.highlevel.Array:
+def read_data_samples(N:int=None, N_batch:int=int(1e4)) -> awk.highlevel.Array:
 
-    N_batch = int(1e4)
     N_total = N
     generator_ee = gene.sample_generator(stco.in_dir_data, N=N_batch, selection_fun=sele.select_lightjets, feature_names_in=stco.feature_names_dat)
 

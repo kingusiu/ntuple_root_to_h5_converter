@@ -13,7 +13,7 @@ def calc_dilepton_px_py_pz(pt:awk.highlevel.Array, eta:awk.highlevel.Array, phi:
     return px, py, pz
 
 
-def calc_invariant_mass(pt:awk.highlevel.Array, eta:awk.highlevel.Array, phi:awk.highlevel.Array, part_m:float) -> awk.highlevel.Array:
+def calc_dilepton_mass(pt:awk.highlevel.Array, eta:awk.highlevel.Array, phi:awk.highlevel.Array, part_m:float) -> awk.highlevel.Array:
 
     px, py, pz = calc_dilepton_px_py_pz(pt, eta, phi)
 
@@ -61,22 +61,24 @@ def select_lightjets(samples:awk.highlevel.Array) -> awk.highlevel.Array:
     z_pt_min = 50e3
 
     # compute invariant mass of electrons
-    ee_m = calc_invariant_mass(samples.el_pt, samples.el_eta, samples.el_phi, part_m=ele_m)
+    samples['ee_m'] = calc_dilepton_mass(samples.el_pt, samples.el_eta, samples.el_phi, part_m=ele_m)
 
     # compute invariant mass of muons
-    mumu_m = calc_invariant_mass(samples.mu_pt, samples.mu_eta, samples.mu_phi, part_m=mu_m)
+    samples['mumu_m'] = calc_dilepton_mass(samples.mu_pt, samples.mu_eta, samples.mu_phi, part_m=mu_m)
 
     # invariant mass of electrons is in Z boson window 80-100 GeV
-    mask_ee_m = (ee_m > z_m_min) & (ee_m < z_m_max)
+    mask_ee_m = (samples.ee_m > z_m_min) & (samples.ee_m < z_m_max)
 
     # invariant mass of muons is in Z boson window 80-100 GeV
-    mask_mumu_m = (mumu_m > z_m_min) & (mumu_m < z_m_max)
+    mask_mumu_m = (samples.mumu_m > z_m_min) & (samples.mumu_m < z_m_max)
 
     # di-electron pt
-    mask_ee_pt = calc_dilepton_pt(samples.el_pt, samples.el_eta, samples.el_phi) > z_pt_min
+    samples['ee_pt'] = calc_dilepton_pt(samples.el_pt, samples.el_eta, samples.el_phi)
+    mask_ee_pt = samples.ee_pt > z_pt_min
 
     # di-muon pt
-    mask_mumu_pt = calc_dilepton_pt(samples.mu_pt, samples.mu_eta, samples.mu_phi) > z_pt_min
+    samples['mumu_pt'] = calc_dilepton_pt(samples.mu_pt, samples.mu_eta, samples.mu_phi)
+    mask_mumu_pt = samples.mumu_pt > z_pt_min
 
     # exactly two electrons of opposite charge
     mask_ee = (awk.num(samples.el_e) == 2) & (awk.sum(samples.el_charge,axis=1) == 0) 

@@ -1,8 +1,12 @@
 import awkward as awk
 import numpy as np
 import sys
-sys.path.append('/eos/home-k/kiwoznia/dev/rodem/jettag')
-import ntuple_root_to_h5_converter.src.string_constants as stco
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+#sys.path.append('/eos/home-k/kiwoznia/dev/rodem/jettag')
+# import ntuple_root_to_h5_converter.src.string_constants as stco
+import src.string_constants as stco
+import src.selection as sele
+
 
 
 
@@ -33,7 +37,7 @@ def split_by_jet_flavor(samples:awk.highlevel.Array, jet_truth_var:str='jet_trut
 
 
 # *********************************************************** #
-#     					  MC clasing	    			      #
+#     					  MC class 		    			      #
 # *********************************************************** #
 
 def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
@@ -86,4 +90,17 @@ def compute_w_samples(samples:awk.highlevel.Array, dsid:str) -> awk.highlevel.Ar
 
 	return compute_w_evt(samples) * compute_w_dsid(dsid)
 
+
+
+# *********************************************************** #
+#     					event kinematics    			      #
+# *********************************************************** #
+
+
+def compute_dilepton_pt_m(pt, eta, phi, part_m):
+
+	mass = sele.calc_dilepton_mass(pt, eta, phi, part_m=part_m)
+	pt_ll = sele.calc_dilepton_pt(pt, eta, phi)
+
+	return mass, pt_ll
 

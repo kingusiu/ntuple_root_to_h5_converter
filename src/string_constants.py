@@ -42,6 +42,7 @@ feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi'
 
 feature_names_dat = feature_names[:-5] # no truth or weight features
 
+
 # *********************************************************** #
 #                           IN/OUT DATA                       #
 # *********************************************************** #
@@ -92,7 +93,6 @@ scale_factors = {
     '364302' : {'xsec': 0.1307037636, 'k':1.}, # not found in file, taken from https://gitlab.cern.ch/atlas-ftag-calibration/ljets_ZJet/-/blob/test_MC23_GN2/DoCalibration/HistReader.cxx?ref_type=heads#L617
 }
 
-lumi = 44307.4 # [pb] MC 16 period D
 
 
 ## sum of weights for each mc dsid (sum over all weights in all files belonging to a given dsid)
@@ -115,3 +115,13 @@ sow_dd = {
 
 mc_lumi_dd = {dsid : lumi * (scale_factors[dsid]['xsec'] * scale_factors[dsid]['k']) / sow_dd[dsid] for dsid in ds_ids_all}
 
+
+# *********************************************************** #
+#                PHYSICS & LHC CONSTANTS                      #
+# *********************************************************** #
+
+lumi = 44307.4 # [pb] MC 16 period D
+
+# particle masses
+ele_m = 511e-3 
+mu_m = 105.7

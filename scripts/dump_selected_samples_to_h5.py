@@ -33,9 +33,7 @@ def read_samples(dsids:list[str],feature_filter:list[str],N:int=None) -> awk.hig
     return samples_concat
 
 
-def read_mc_background(N:int=None) -> tuple[awk.highlevel.Array]:
-
-    dsids = list(stco.ds_ids_bg.values())
+def read_mc(dsids:list[str], N:int=None) -> tuple[awk.highlevel.Array]:
 
     feature_filter = ['jet_pt_lead','jet_eta_lead','dsid','wt']
 
@@ -56,6 +54,8 @@ def read_mc_signal(N:int=None) -> tuple[awk.highlevel.Array]:
 
 
 
+
+
 if __name__ == '__main__':
 
     # *********************************************************** #
@@ -63,12 +63,14 @@ if __name__ == '__main__':
     # *********************************************************** #
 
     N = int(1e5)
+    feat_mc = ['jet_pt_lead','jet_eta_lead','jet_phi_lead','jet_truthflav_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead', 'wt', 'dsid']
+    feat_dat = ['jet_pt_lead','jet_eta_lead','jet_phi_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead']
 
     #***************************** MC *************************** #
 
     # background
-
-    ttb, zz, wz = read_mc_background(N)
+    dsids = list(stco.ds_ids_bg.values())
+    ttb, zz, wz = read_mc(dsids=dsids,N=N)
     logger.info(f'mc background read: {len(ttb)} ttb, {len(zz)} zz and {len(wz)} wz samples')
 
     # signal
