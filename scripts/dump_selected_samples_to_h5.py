@@ -15,45 +15,21 @@ import src.util as util
 logger = heplog.get_logger(__name__)
 
 
-def read_samples(dsids:list[str],feature_filter:list[str],N:int=None) -> awk.highlevel.Array:
+def read_mc(dsids:list[str],feature_filter:list[str],N:int=None) -> awk.highlevel.Array:
 
     samples_concat = None
 
     for dsid in dsids:
-        samples = read.read_samples_for_dsid(dsid,N=N)
-        selected = sele.select_lightjets(samples)
-        weights = util.compute_w_samples(selected, dsid)
-        selected['dsid'] = dsid
-        selected['wt'] = weights
+        samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+        weights = util.compute_w_samples(samples, dsid)
+        samples['dsid'] = dsid
+        samples['wt'] = weights
         if samples_concat is None:
-            samples_concat = selected[feature_filter]
+            samples_concat = samples[feature_filter]
         else:    
-            samples_concat = awk.concatenate([samples_concat,selected[feature_filter]])
+            samples_concat = awk.concatenate([samples_concat,samples[feature_filter]])
 
     return samples_concat
-
-
-def read_mc(dsids:list[str], N:int=None) -> tuple[awk.highlevel.Array]:
-
-    feature_filter = ['jet_pt_lead','jet_eta_lead','dsid','wt']
-
-    samples_concat = read_samples(dsids,feature_filter, N=N)
-    
-    return util.split_into_ttbar_zz_wz(samples_concat) # ttb, zz, wz
-
-
-def read_mc_signal(N:int=None) -> tuple[awk.highlevel.Array]:
-
-    dsids = sum(list(stco.ds_ids_sig.values()),[])
-
-    feature_filter=['jet_pt_lead','jet_eta_lead','jet_truthflav_lead', 'wt']
-
-    samples_concat = read_samples(dsids,feature_filter,N=N)
-
-    return util.split_by_jet_flavor(samples_concat)
-
-
-
 
 
 if __name__ == '__main__':
@@ -62,31 +38,32 @@ if __name__ == '__main__':
     #                    read MC & data                           #
     # *********************************************************** #
 
-    N = int(1e5)
+    N = int(1e3)
     feat_mc = ['jet_pt_lead','jet_eta_lead','jet_phi_lead','jet_truthflav_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead', 'wt', 'dsid']
     feat_dat = ['jet_pt_lead','jet_eta_lead','jet_phi_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead']
 
     #***************************** MC *************************** #
 
-    # background
+    # background ttb, zz, wz
     dsids = list(stco.ds_ids_bg.values())
-    ttb, zz, wz = read_mc(dsids=dsids,N=N)
-    logger.info(f'mc background read: {len(ttb)} ttb, {len(zz)} zz and {len(wz)} wz samples')
+    samples_bg = read_mc(dsids=dsids, feature_filter=feat_mc, N=N)
+    logger.info(f'mc background read: {len(samples_bg)} samples')
 
     # signal
-
-    jetU, jetC, jetB, jetT = read_mc_signal(N)
-    logger.info(f'mc signal read: {len(jetU)} light, {len(jetC)} charm, {len(jetB)} B and {len(jetT)} tau jet samples')
+    dsids = sum(list(stco.ds_ids_sig.values()),[])
+    samples_sig = read_mc(dsids=dsids, feature_filter=feat_mc, N=N)
+    logger.info(f'mc signal read: {len(samples_sig)} samples')
 
 
     #***************************** data ************************** #
 
-    dat = read.read_data_samples(N)
-    logger.info(f'data read: {len(dat)} samples')
+    samples_dat = read.read_data_samples(N,filtered=True)
+    samples_dat = samples_dat[feat_dat]
+    logger.info(f'data read: {len(samples_dat)} samples')
 
 
     # *********************************************************** #
-    #           plot stacked histogram MC vs data                 #
+    #           convert to dataframe and dump to h5               #
     # *********************************************************** #
 
     # assemble samples to plot
