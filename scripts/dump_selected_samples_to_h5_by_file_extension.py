@@ -21,6 +21,7 @@ import src.util as util
 logger = heplog.get_logger(__name__)
 
 
+
 def read_and_select_lightjets(file_path:str,feat_in:list[str]=stco.feature_names) -> awk.highlevel.Array:
 
     samples = read.read_samples_from_file(file_path, feature_names=feat_in)
@@ -29,9 +30,8 @@ def read_and_select_lightjets(file_path:str,feat_in:list[str]=stco.feature_names
     return samples
 
 
-def get_preprocessed_mc_samples_from_file(file_path:str,dsid:str,feat_out:list[str],feat_in:list[str]=stco.feature_names) -> awk.highlevel.Array:
 
-    # import ipdb; ipdb.set_trace()
+def get_preprocessed_mc_samples_from_file(file_path:str,dsid:str,feat_out:list[str],feat_in:list[str]=stco.feature_names) -> awk.highlevel.Array:
 
     samples = read_and_select_lightjets(file_path, feature_names=feat_in)
     weights = util.compute_w_samples(samples, dsid)
@@ -83,6 +83,7 @@ def write_selected_samples_to_h5_mc(events:h5py.Dataset, dsids:list[str], feat_o
     return events
 
 
+
 def write_selected_samples_to_h5_data(events:h5py.Dataset, file_paths:list[str], feat_out:list[str], feat_in:list[str]=stco.feature_names_dat) -> None:
         
     for file_path in file_paths:
@@ -128,6 +129,7 @@ def dump_mc_to_h5(dsids:list[str],feat_out:list[str],file_out_path:str,sample_ty
         logger.info(f'final counts: {len(events)} samples for {sample_type} in {events.file.filename}')
 
 
+
 def dump_data_to_h5(file_out_path:str,feat_out:list[str]) -> None:
 
     file_paths = [os.path.join(stco.in_dir_data, ff) for ff in os.listdir(stco.in_dir_data)]
@@ -154,7 +156,7 @@ def dump_data_to_h5(file_out_path:str,feat_out:list[str]) -> None:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for lightjet dump')
-    tt = parser.add_argument('-t', dest='type', choices=['dat','bg','ee','mumu','tautau'], help='type of samples to be read')
+    tt = parser.add_argument('-t', dest='type', choices=['dat','bg','ee','mumu','tautau'], help='type of samples to be read, processed and persisted')
     args = parser.parse_args()
 
     # *********************************************************** #
@@ -176,9 +178,12 @@ if __name__ == '__main__':
         
     #***************************** MC ************************** #
 
-    else:
+    else: # else read montecarlo
 
-        dsids = list(stco.ds_ids_bg.values()) if args.type == 'bg' else stco.ds_ids_sig[args.type]
+        if args.type == 'sig': dsids = sum(list(ds_ids_sig.values()),[]) # all signal samples
+        elif args.type == 'bg': dsids = list(stco.ds_ids_bg.values()) # background
+        else: dsids = stco.ds_ids_sig[args.type] # individual signal samples
         out_path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[args.type])
+
         dump_mc_to_h5(dsids=dsids,feat_out=feat_mc,file_out_path=out_path,sample_type=args.type)        
 

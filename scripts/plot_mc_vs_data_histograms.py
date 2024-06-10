@@ -19,7 +19,8 @@ logger = heplog.get_logger(__name__)
 def read_selected(sample_id:str,feature_names:list[str],N:int=None) -> pd.DataFrame:
 
     path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[sample_id])
-    df = pd.read_hdf(path,'df')[feature_names]
+    ff = h5py.File(path, 'r')
+    df = pd.DataFrame(np.array(ff.get('events')))[feature_names]
 
     return df.iloc[:N] if N else df
 

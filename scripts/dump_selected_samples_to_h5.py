@@ -63,7 +63,7 @@ def dump(samples:awk.highlevel.Array,file_name:str) -> None:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for lightjet dump')
-    tt = parser.add_argument('-t', dest='type', choices=['bg','ee','mumu','tautau','dat'], help='type of samples to be read')
+    tt = parser.add_argument('-t', dest='type', choices=['bg','ee','mumu','tautau','dat'], help='type of samples to be read, selected and persisted')
     args = parser.parse_args()
 
     # *********************************************************** #
