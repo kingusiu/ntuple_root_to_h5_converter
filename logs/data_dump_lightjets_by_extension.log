@@ -45,3 +45,302 @@ TypeError: write_to_h5() got an unexpected keyword argument 'file_name'
 2024-06-10 16:35:01 [reader.py:read_samples_for_dsid] reading samples for dsid 512200 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512200.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
 2024-06-10 16:35:09 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 3679 samples to file of length 2609
 2024-06-10 16:35:09 [dump_selected_samples_to_h5_by_file_extension.py:write_to_h5] wrote 6288 selected samples for dsids ['512198', '512199', '512200'] to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 16:36:13 [reader.py:read_samples_for_dsid] reading samples for dsid 506196 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:50:08 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 6694426 samples to file of length 0
+2024-06-10 16:50:16 [reader.py:read_samples_for_dsid] reading samples for dsid 506197 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 17:09:03 [reader.py:read_concatenate_samples] caught exception while reading file: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000004.output.root'
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 91, in <module>
+    #***************************** data ************************** #
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 66, in write_to_h5
+    samples = read_samples_for_dsid(dsid,features_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 25, in read_samples_for_dsid
+    samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 79, in read_samples_for_dsid
+    return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names,N=N,filtered=filtered)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 63, in read_concatenate_samples
+    del samples
+UnboundLocalError: local variable 'samples' referenced before assignment
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 126, in <module>
+    dump_to_h5(dsids=dsids,features_out=feat_mc,file_path=out_path,N=N)        
+TypeError: dump_to_h5() got an unexpected keyword argument 'features_out'
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 126, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path,N=N)        
+TypeError: dump_to_h5() got an unexpected keyword argument 'file_path'
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 126, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path,N=N)        
+TypeError: dump_to_h5() got an unexpected keyword argument 'N'
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 126, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path)        
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 84, in dump_to_h5
+    dtype = get_dtype_for_h5(get_file_paths_for_dsid(dsids[0])[0],dsids[0],feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 49, in get_file_paths_for_dsid
+    dsid_root_dir = glob.glob(os.path.join(stco.in_dir_mc,'*'+dsid+'*'))[0]
+NameError: name 'glob' is not defined
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/highlevel.py", line 1062, in __getitem__
+    prepare_layout(self._layout[where]),
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/contents/content.py", line 519, in __getitem__
+    return self._getitem(where)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/contents/content.py", line 676, in _getitem
+    return self._getitem_fields(list(where))
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/contents/recordarray.py", line 489, in _getitem_fields
+    indexes = [self.field_to_index(field) for field in where]
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/contents/recordarray.py", line 489, in <listcomp>
+    indexes = [self.field_to_index(field) for field in where]
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/_meta/recordmeta.py", line 117, in field_to_index
+    raise FieldNotFoundError(
+awkward.errors.FieldNotFoundError: no field 'jet_pt_lead' in record with 24 fields
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 127, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path)        
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 85, in dump_to_h5
+    dtype = get_dtype_for_h5(get_file_paths_for_dsid(dsids[0])[0],dsids[0],feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 76, in get_dtype_for_h5
+    samples = select_samples_from_file(file_path,dsid,feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 32, in select_samples_from_file
+    return samples[feat_out]
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/highlevel.py", line 1060, in __getitem__
+    with ak._errors.SlicingErrorContext(self, where):
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+awkward.errors.FieldNotFoundError: no field 'jet_pt_lead' in record with 24 fields
+
+This error occurred while attempting to slice
+
+    <Array [{el_e: [], mu_e: [...], ...}, ...] type='360 * {el_e: var * flo...'>
+
+with
+
+    ['jet_pt_lead', 'jet_eta_lead', 'jet_phi_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead', 'jet_truthflavExtended_lead', 'wt', 'dsid']
+> [0;32m/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py[0m(28)[0;36mselect_samples_from_file[0;34m()[0m
+[0;32m     27 [0;31m[0;34m[0m[0m
+[0m[0;32m---> 28 [0;31m    [0msamples[0m [0;34m=[0m [0mread[0m[0;34m.[0m[0mread_samples_from_file[0m[0;34m([0m[0mfile_path[0m[0;34m,[0m [0mfeature_names[0m[0;34m=[0m[0mfeat_in[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m     29 [0;31m    [0msamples_to_concat[0m [0;34m=[0m [0msele[0m[0;34m.[0m[0mselect_lightjets[0m[0;34m([0m[0msamples[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+ipdb> > [0;32m/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py[0m(29)[0;36mselect_samples_from_file[0;34m()[0m
+[0;32m     28 [0;31m    [0msamples[0m [0;34m=[0m [0mread[0m[0;34m.[0m[0mread_samples_from_file[0m[0;34m([0m[0mfile_path[0m[0;34m,[0m [0mfeature_names[0m[0;34m=[0m[0mfeat_in[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m---> 29 [0;31m    [0msamples_to_concat[0m [0;34m=[0m [0msele[0m[0;34m.[0m[0mselect_lightjets[0m[0;34m([0m[0msamples[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m     30 [0;31m    [0mweights[0m [0;34m=[0m [0mutil[0m[0;34m.[0m[0mcompute_w_samples[0m[0;34m([0m[0msamples[0m[0;34m,[0m [0mdsid[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+ipdb> <Array [{el_e: [], mu_e: [...], ...}, ...] type='360 * {el_e: var * float32...'>
+ipdb> ['el_e', 'mu_e', 'el_charge', 'mu_charge', 'el_pt', 'mu_pt', 'el_phi', 'mu_phi', 'el_eta', 'mu_eta', 'jet_e', 'jet_eta', 'jet_phi', 'jet_pt', 'jet_GN2_pu', 'jet_GN2_pb', 'jet_GN2_pc', 'jet_truthflavExtended', 'weight_mc', 'weight_pileup', 'weight_jvt', 'weight_leptonSF']
+ipdb> 
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 129, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 87, in dump_to_h5
+    dtype = get_dtype_for_h5(get_file_paths_for_dsid(dsids[0])[0],dsids[0],feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 78, in get_dtype_for_h5
+    samples = select_samples_from_file(file_path,dsid,feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 29, in select_samples_from_file
+    samples = sele.select_lightjets(samples)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 29, in select_samples_from_file
+    samples = sele.select_lightjets(samples)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+If you suspect this is an IPython 8.21.0 bug, please report it at:
+    https://github.com/ipython/ipython/issues
+or send an email to the mailing list at ipython-dev@python.org
+
+You can print a more detailed traceback right now with "%tb", or use "%debug"
+to interactively debug it.
+
+Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
+    %config Application.verbose_crash=True
+
+2024-06-10 18:10:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 204 samples to file of length 0
+2024-06-10 18:10:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 204
+2024-06-10 18:10:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 40 samples to file of length 266
+2024-06-10 18:10:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 97 samples to file of length 306
+2024-06-10 18:10:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 39 samples to file of length 403
+2024-06-10 18:10:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 28 samples to file of length 442
+2024-06-10 18:10:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 470
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 129, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path)        
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 95, in dump_to_h5
+    write_selected_samples_to_h5(events, dsids, feat_out)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 72, in write_selected_samples_to_h5
+    logger.info(f'wrote {len(events)} selected samples for dsids {dsids} to {events.filename}')
+AttributeError: 'Dataset' object has no attribute 'filename'
+2024-06-10 18:12:45 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 204 samples to file of length 0
+2024-06-10 18:12:46 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 204
+2024-06-10 18:12:46 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 40 samples to file of length 266
+2024-06-10 18:12:46 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 97 samples to file of length 306
+2024-06-10 18:12:46 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 39 samples to file of length 403
+2024-06-10 18:12:46 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 28 samples to file of length 442
+2024-06-10 18:12:47 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 470
+2024-06-10 18:12:47 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 532 selected samples for dsids ['512198', '512199', '512200'] to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:12:47 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 97 samples to file of length 532
+2024-06-10 18:12:47 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 48 samples to file of length 629
+2024-06-10 18:12:47 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 25 samples to file of length 677
+2024-06-10 18:12:48 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 198 samples to file of length 702
+2024-06-10 18:12:48 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 202 samples to file of length 900
+2024-06-10 18:12:48 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 72 samples to file of length 1102
+2024-06-10 18:12:49 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 204 samples to file of length 1174
+2024-06-10 18:12:49 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 171 samples to file of length 1378
+2024-06-10 18:12:49 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 145 samples to file of length 1549
+2024-06-10 18:12:50 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 25 samples to file of length 1694
+2024-06-10 18:12:50 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 171 samples to file of length 1719
+2024-06-10 18:12:50 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 175 samples to file of length 1890
+2024-06-10 18:12:51 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 58 samples to file of length 2065
+2024-06-10 18:12:51 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 15 samples to file of length 2123
+2024-06-10 18:12:51 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 29 samples to file of length 2138
+2024-06-10 18:12:51 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 14 samples to file of length 2167
+2024-06-10 18:12:52 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 183 samples to file of length 2181
+2024-06-10 18:12:52 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 202 samples to file of length 2364
+2024-06-10 18:12:53 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 43 samples to file of length 2566
+2024-06-10 18:12:53 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 2609 selected samples for dsids ['512198', '512199', '512200'] to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:12:53 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 126 samples to file of length 2609
+2024-06-10 18:12:53 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 104 samples to file of length 2735
+2024-06-10 18:12:53 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 152 samples to file of length 2839
+2024-06-10 18:12:54 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 2991
+2024-06-10 18:12:54 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 163 samples to file of length 3139
+2024-06-10 18:12:54 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 146 samples to file of length 3302
+2024-06-10 18:12:55 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 147 samples to file of length 3448
+2024-06-10 18:12:55 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 142 samples to file of length 3595
+2024-06-10 18:12:55 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 106 samples to file of length 3737
+2024-06-10 18:12:55 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 121 samples to file of length 3843
+2024-06-10 18:12:56 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 3964
+2024-06-10 18:12:56 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 128 samples to file of length 4112
+2024-06-10 18:12:56 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 144 samples to file of length 4240
+2024-06-10 18:12:57 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 32 samples to file of length 4384
+2024-06-10 18:12:57 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 14 samples to file of length 4416
+2024-06-10 18:12:57 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 39 samples to file of length 4430
+2024-06-10 18:12:57 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 32 samples to file of length 4469
+2024-06-10 18:12:58 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 16 samples to file of length 4501
+2024-06-10 18:12:58 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 4517
+2024-06-10 18:12:58 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 133 samples to file of length 4665
+2024-06-10 18:12:59 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 128 samples to file of length 4798
+2024-06-10 18:12:59 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 154 samples to file of length 4926
+2024-06-10 18:12:59 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 3 samples to file of length 5080
+2024-06-10 18:13:00 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 104 samples to file of length 5083
+2024-06-10 18:13:00 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 144 samples to file of length 5187
+2024-06-10 18:13:00 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 106 samples to file of length 5331
+2024-06-10 18:13:01 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 15 samples to file of length 5437
+2024-06-10 18:13:01 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 121 samples to file of length 5452
+2024-06-10 18:13:01 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 143 samples to file of length 5573
+2024-06-10 18:13:02 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 120 samples to file of length 5716
+2024-06-10 18:13:02 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 163 samples to file of length 5836
+2024-06-10 18:13:02 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 147 samples to file of length 5999
+2024-06-10 18:13:03 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 142 samples to file of length 6146
+2024-06-10 18:13:03 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 6288 selected samples for dsids ['512198', '512199', '512200'] to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 134, in <module>
+    dump_to_h5(dsids=dsids,feat_out=feat_mc,file_path=out_path)        
+TypeError: dump_to_h5() missing 1 required positional argument: 'sample_type'
+2024-06-10 18:16:25 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 204 samples to file of length 0
+2024-06-10 18:16:26 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 204
+2024-06-10 18:16:26 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 40 samples to file of length 266
+2024-06-10 18:16:26 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 97 samples to file of length 306
+2024-06-10 18:16:26 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 39 samples to file of length 403
+2024-06-10 18:16:26 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 28 samples to file of length 442
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 62 samples to file of length 470
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 532 selected samples for dsids 512198 to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 97 samples to file of length 532
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 48 samples to file of length 629
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 25 samples to file of length 677
+2024-06-10 18:16:27 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 198 samples to file of length 702
+2024-06-10 18:16:28 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 202 samples to file of length 900
+2024-06-10 18:16:28 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 72 samples to file of length 1102
+2024-06-10 18:16:28 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 204 samples to file of length 1174
+2024-06-10 18:16:28 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 171 samples to file of length 1378
+2024-06-10 18:16:29 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 145 samples to file of length 1549
+2024-06-10 18:16:29 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 25 samples to file of length 1694
+2024-06-10 18:16:29 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 171 samples to file of length 1719
+2024-06-10 18:16:29 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 175 samples to file of length 1890
+2024-06-10 18:16:30 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 58 samples to file of length 2065
+2024-06-10 18:16:30 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 15 samples to file of length 2123
+2024-06-10 18:16:30 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 29 samples to file of length 2138
+2024-06-10 18:16:30 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 14 samples to file of length 2167
+2024-06-10 18:16:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 183 samples to file of length 2181
+2024-06-10 18:16:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 202 samples to file of length 2364
+2024-06-10 18:16:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 43 samples to file of length 2566
+2024-06-10 18:16:31 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 2609 selected samples for dsids 512199 to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:16:31 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 126 samples to file of length 2609
+2024-06-10 18:16:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 104 samples to file of length 2735
+2024-06-10 18:16:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 152 samples to file of length 2839
+2024-06-10 18:16:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 2991
+2024-06-10 18:16:32 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 163 samples to file of length 3139
+2024-06-10 18:16:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 146 samples to file of length 3302
+2024-06-10 18:16:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 147 samples to file of length 3448
+2024-06-10 18:16:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 142 samples to file of length 3595
+2024-06-10 18:16:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 106 samples to file of length 3737
+2024-06-10 18:16:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 121 samples to file of length 3843
+2024-06-10 18:16:34 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 3964
+2024-06-10 18:16:34 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 128 samples to file of length 4112
+2024-06-10 18:16:34 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 144 samples to file of length 4240
+2024-06-10 18:16:34 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 32 samples to file of length 4384
+2024-06-10 18:16:35 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 14 samples to file of length 4416
+2024-06-10 18:16:35 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 39 samples to file of length 4430
+2024-06-10 18:16:35 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 32 samples to file of length 4469
+2024-06-10 18:16:35 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 16 samples to file of length 4501
+2024-06-10 18:16:36 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 148 samples to file of length 4517
+2024-06-10 18:16:36 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 133 samples to file of length 4665
+2024-06-10 18:16:36 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 128 samples to file of length 4798
+2024-06-10 18:16:36 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 154 samples to file of length 4926
+2024-06-10 18:16:37 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 3 samples to file of length 5080
+2024-06-10 18:16:37 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 104 samples to file of length 5083
+2024-06-10 18:16:37 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 144 samples to file of length 5187
+2024-06-10 18:16:38 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 106 samples to file of length 5331
+2024-06-10 18:16:38 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 15 samples to file of length 5437
+2024-06-10 18:16:38 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 121 samples to file of length 5452
+2024-06-10 18:16:38 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 143 samples to file of length 5573
+2024-06-10 18:16:39 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 120 samples to file of length 5716
+2024-06-10 18:16:39 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 163 samples to file of length 5836
+2024-06-10 18:16:39 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 147 samples to file of length 5999
+2024-06-10 18:16:40 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 142 samples to file of length 6146
+2024-06-10 18:16:40 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 6288 selected samples for dsids 512200 to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:16:40 [dump_selected_samples_to_h5_by_file_extension.py:dump_to_h5] final counts: 6288 samples for tautau in /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-10 18:25:54 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] caught exception while reading file: name 'file' is not defined
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 103
+    def write_data_to_h5(,file_path:str) -> None:
+                         ^
+SyntaxError: invalid syntax
+2024-06-10 18:29:34 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1756568 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305917._000001.output.root to dsid 506196 set of length 0
+2024-06-10 18:30:00 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 501821 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305917._000002.output.root to dsid 506196 set of length 1756568
+2024-06-10 18:30:37 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 502274 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305917._000003.output.root to dsid 506196 set of length 2258389
+2024-06-10 18:31:21 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 586550 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305917._000004.output.root to dsid 506196 set of length 2760663
+2024-06-10 18:31:47 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 453123 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000001.output.root to dsid 506196 set of length 3347213
+2024-06-10 18:33:01 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 660581 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000002.output.root to dsid 506196 set of length 3800336
+2024-06-10 18:33:28 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 496865 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000003.output.root to dsid 506196 set of length 4460917
+2024-06-10 18:33:53 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 417878 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000004.output.root to dsid 506196 set of length 4957782
+2024-06-10 18:33:57 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 52045 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000005.output.root to dsid 506196 set of length 5375660
+2024-06-10 18:34:25 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 449972 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000006.output.root to dsid 506196 set of length 5427705
+2024-06-10 18:34:28 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 51849 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000007.output.root to dsid 506196 set of length 5877677
+2024-06-10 18:34:53 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 450229 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000008.output.root to dsid 506196 set of length 5929526
+2024-06-10 18:35:11 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 314671 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351506._000009.output.root to dsid 506196 set of length 6379755
+2024-06-10 18:35:12 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 6694426 selected samples for dsid 506196 to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_mumu.h5
+2024-06-10 18:41:29 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1715941 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000001.output.root to dsid 506197 set of length 6694426
+2024-06-10 18:41:51 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 286989 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000002.output.root to dsid 506197 set of length 8410367
+2024-06-10 18:43:59 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1131936 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000003.output.root to dsid 506197 set of length 8697356
+2024-06-10 18:52:24 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 2025442 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000004.output.root to dsid 506197 set of length 9829292
+2024-06-10 18:55:39 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1437241 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305918._000005.output.root to dsid 506197 set of length 11854734
+2024-06-10 19:03:43 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1698493 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351508._000001.output.root to dsid 506197 set of length 13291975
+2024-06-10 19:08:28 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1437241 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351508._000002.output.root to dsid 506197 set of length 14990468
+2024-06-10 19:08:47 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 286989 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351508._000003.output.root to dsid 506197 set of length 16427709
+2024-06-10 19:16:21 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 2030260 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351508._000004.output.root to dsid 506197 set of length 16714698
+2024-06-10 19:21:47 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1144566 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351508._000005.output.root to dsid 506197 set of length 18744958
+2024-06-10 19:21:48 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] wrote 19889524 selected samples for dsid 506197 to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_mumu.h5
+2024-06-10 19:29:34 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1166428 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000001.output.root to dsid 506198 set of length 19889524
+2024-06-10 19:33:07 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1009303 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000002.output.root to dsid 506198 set of length 21055952
+2024-06-10 19:33:20 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 157433 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000003.output.root to dsid 506198 set of length 22065255
+2024-06-10 19:34:00 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 582803 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000004.output.root to dsid 506198 set of length 22222688
+2024-06-10 19:40:38 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1166603 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000005.output.root to dsid 506198 set of length 22805491
+2024-06-10 19:46:41 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1165155 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000006.output.root to dsid 506198 set of length 23972094
+2024-06-10 19:49:57 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1165481 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000007.output.root to dsid 506198 set of length 25137249
+2024-06-10 19:52:07 [dump_selected_samples_to_h5_by_file_extension.py:write_selected_samples_to_h5] adding 1162168 samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506198.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305919._000008.output.root to dsid 506198 set of length 26302730
