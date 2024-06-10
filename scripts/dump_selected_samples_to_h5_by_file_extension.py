@@ -76,7 +76,7 @@ def write_to_h5(dsids:list[str],features_out:list[str],file_path:str,N:int=None)
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for lightjet dump')
-    tt = parser.add_argument('-t', dest='type', choices=['ee','mumu','tautau'], help='type of samples to be read')
+    tt = parser.add_argument('-t', dest='type', choices=['bg','ee','mumu','tautau'], help='type of samples to be read')
     args = parser.parse_args()
 
     # *********************************************************** #
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     N = None
     feat_mc = ['jet_pt_lead','jet_eta_lead','jet_phi_lead', 'jet_GN2_pu_lead', 'jet_GN2_pb_lead', 'jet_GN2_pc_lead', 'jet_truthflavExtended_lead', 'wt', 'dsid']
 
-    dsids = stco.ds_ids_sig[args.type]
+    dsids = list(stco.ds_ids_bg.values()) if args.type == 'bg' else stco.ds_ids_sig[args.type]
     path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[args.type])
     write_to_h5(dsids=dsids,features_out=feat_mc,file_path=path,N=N)        
 
