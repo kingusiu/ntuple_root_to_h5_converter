@@ -1,0 +1,264 @@
+2024-06-04 14:03:00 [reader.py:read_samples_for_dsid] reading samples for dsid 410472 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.410472.PhPy8EG_A14_ttbar_hdamp258p75_dil.D_FTAG2.e6348_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 14:04:30 [reader.py:read_samples_for_dsid] reading samples for dsid 363356 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.363356.Sherpa_221_NNPDF30NNLO_ZqqZll.D_FTAG2.e5525_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 14:06:09 [reader.py:read_samples_for_dsid] reading samples for dsid 363358 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.363358.Sherpa_221_NNPDF30NNLO_WqqZll.D_FTAG2.e5525_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 14:15:13 [reader.py:read_samples_for_dsid] reading samples for dsid 364302 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.364302.Sherpa_222_NNPDF30NNLO_ggZllZqq.D_FTAG2.e6273_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 14:15:17 [dump_selected_samples_to_h5.py:<module>] mc background read: 4965152 samples
+2024-06-04 14:15:18 [dump_selected_samples_to_h5.py:<module>] writing selected bg samples to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets
+2024-06-04 14:21:12 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 14:33:32 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 16:00:10 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 16:14:54 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 16:36:45 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 16:46:08 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 22:01:41 [reader.py:read_data_samples] reading data samples from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/dataRun2_daod_ftag2/user.ltoffoli.data17_13T.periodAllYear.physics_Main.PhysCont.D_FTAG2.grp17_v01_p5981.GN2v01_Nom_output.root
+2024-06-04 22:35:48 [dump_selected_samples_to_h5.py:<module>] data read: 2713020 samples
+2024-06-04 22:35:48 [dump_selected_samples_to_h5.py:<module>] writing selected dat samples to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/data.h5
+2024-06-04 22:41:29 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-04 22:50:27 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 64, in <module>
+    # signal
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 25, in read_mc
+    samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 67, in read_samples_for_dsid
+    return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names,N=N,filtered=filtered)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 45, in read_concatenate_samples
+    samples = read_samples_from_file(file_path, feature_names=feature_names_from_file)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 36, in read_samples_from_file
+    return tree.arrays(feature_names)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 833, in arrays
+    _ranges_or_baskets_to_arrays(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3142, in _ranges_or_baskets_to_arrays
+    uproot.source.futures.delayed_raise(*obj)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/futures.py", line 38, in delayed_raise
+    raise exception_value.with_traceback(traceback)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3056, in chunk_to_basket
+    basket = uproot.models.TBasket.Model_TBasket.read(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/model.py", line 853, in read
+    self.read_members(chunk, cursor, context, file)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/models/TBasket.py", line 229, in read_members
+    ) = cursor.fields(chunk, _tbasket_format1, context)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/cursor.py", line 201, in fields
+    return format.unpack(chunk.get(start, stop, self, context))
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 427, in get
+    self.wait(insist=stop)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 369, in wait
+    self._raw_data = numpy.frombuffer(self._future.result(), dtype=self._dtype)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/fsspec.py", line 156, in async_wrapper_thread
+    return await to_thread(blocking_func, *args, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 766, in cat_file
+    with self.open(path, "rb", **kwargs) as f:
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 1293, in open
+    f = self._open(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 184, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 306, in __init__
+    self._open()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 311, in _open
+    self.f = open(self.path, mode=self.mode)
+IsADirectoryError: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37351503._000005.output.root'
+2024-06-05 09:19:24 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 09:26:20 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 66, in <module>
+    samples_sig = read_mc(dsids=dsids, features_out=feat_mc, N=N)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 25, in read_mc
+    samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 67, in read_samples_for_dsid
+    return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names,N=N,filtered=filtered)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 45, in read_concatenate_samples
+    samples = read_samples_from_file(file_path, feature_names=feature_names_from_file)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 36, in read_samples_from_file
+    return tree.arrays(feature_names)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 833, in arrays
+    _ranges_or_baskets_to_arrays(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3142, in _ranges_or_baskets_to_arrays
+    uproot.source.futures.delayed_raise(*obj)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/futures.py", line 38, in delayed_raise
+    raise exception_value.with_traceback(traceback)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3056, in chunk_to_basket
+    basket = uproot.models.TBasket.Model_TBasket.read(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/model.py", line 853, in read
+    self.read_members(chunk, cursor, context, file)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/models/TBasket.py", line 229, in read_members
+    ) = cursor.fields(chunk, _tbasket_format1, context)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/cursor.py", line 201, in fields
+    return format.unpack(chunk.get(start, stop, self, context))
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 427, in get
+    self.wait(insist=stop)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 369, in wait
+    self._raw_data = numpy.frombuffer(self._future.result(), dtype=self._dtype)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/fsspec.py", line 156, in async_wrapper_thread
+    return await to_thread(blocking_func, *args, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 766, in cat_file
+    with self.open(path, "rb", **kwargs) as f:
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 1293, in open
+    f = self._open(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 184, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 306, in __init__
+    self._open()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 311, in _open
+    self.f = open(self.path, mode=self.mode)
+IsADirectoryError: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305915._000005.output.root'
+2024-06-05 09:38:53 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 09:48:48 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 10:20:29 [reader.py:read_samples_for_dsid] reading samples for dsid 506195 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 10:51:13 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 10:57:19 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 11:43:09 [reader.py:read_samples_for_dsid] reading samples for dsid 506195 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 69, in <module>
+    samples_sig = read_mc(dsids=dsids, features_out=feat_mc, N=N)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 26, in read_mc
+    samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 70, in read_samples_for_dsid
+    return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names,N=N,filtered=filtered)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 48, in read_concatenate_samples
+    samples = read_samples_from_file(file_path, feature_names=feature_names_from_file)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 36, in read_samples_from_file
+    return tree.arrays(feature_names)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 833, in arrays
+    _ranges_or_baskets_to_arrays(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3142, in _ranges_or_baskets_to_arrays
+    uproot.source.futures.delayed_raise(*obj)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/futures.py", line 38, in delayed_raise
+    raise exception_value.with_traceback(traceback)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3056, in chunk_to_basket
+    basket = uproot.models.TBasket.Model_TBasket.read(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/model.py", line 853, in read
+    self.read_members(chunk, cursor, context, file)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/models/TBasket.py", line 229, in read_members
+    ) = cursor.fields(chunk, _tbasket_format1, context)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/cursor.py", line 201, in fields
+    return format.unpack(chunk.get(start, stop, self, context))
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 427, in get
+    self.wait(insist=stop)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 369, in wait
+    self._raw_data = numpy.frombuffer(self._future.result(), dtype=self._dtype)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/fsspec.py", line 156, in async_wrapper_thread
+    return await to_thread(blocking_func, *args, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 766, in cat_file
+    with self.open(path, "rb", **kwargs) as f:
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 1293, in open
+    f = self._open(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 184, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 306, in __init__
+    self._open()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 311, in _open
+    self.f = open(self.path, mode=self.mode)
+IsADirectoryError: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305916._000010.output.root'
+2024-06-05 12:30:57 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 12:41:40 [dump_selected_samples_to_h5.py:read_mc] 4248754 samples read for dsid 506193
+2024-06-05 12:41:40 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 13:20:47 [dump_selected_samples_to_h5.py:read_mc] 15037201 samples read for dsid 506194
+2024-06-05 13:20:47 [reader.py:read_samples_for_dsid] reading samples for dsid 506195 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 69, in <module>
+    samples_sig = read_mc(dsids=dsids, features_out=feat_mc, N=N)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 26, in read_mc
+    samples = read.read_samples_for_dsid(dsid,N=N,filtered=True)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 70, in read_samples_for_dsid
+    return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names,N=N,filtered=filtered)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 48, in read_concatenate_samples
+    samples = read_samples_from_file(file_path, feature_names=feature_names_from_file)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/src/reader.py", line 36, in read_samples_from_file
+    return tree.arrays(feature_names)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 833, in arrays
+    _ranges_or_baskets_to_arrays(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3142, in _ranges_or_baskets_to_arrays
+    uproot.source.futures.delayed_raise(*obj)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/futures.py", line 38, in delayed_raise
+    raise exception_value.with_traceback(traceback)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/behaviors/TBranch.py", line 3056, in chunk_to_basket
+    basket = uproot.models.TBasket.Model_TBasket.read(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/model.py", line 853, in read
+    self.read_members(chunk, cursor, context, file)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/models/TBasket.py", line 229, in read_members
+    ) = cursor.fields(chunk, _tbasket_format1, context)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/cursor.py", line 201, in fields
+    return format.unpack(chunk.get(start, stop, self, context))
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 427, in get
+    self.wait(insist=stop)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/chunk.py", line 369, in wait
+    self._raw_data = numpy.frombuffer(self._future.result(), dtype=self._dtype)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/uproot/source/fsspec.py", line 156, in async_wrapper_thread
+    return await to_thread(blocking_func, *args, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 766, in cat_file
+    with self.open(path, "rb", **kwargs) as f:
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/spec.py", line 1293, in open
+    f = self._open(
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 184, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 306, in __init__
+    self._open()
+  File "/eos/home-k/kiwoznia/software/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fsspec/implementations/local.py", line 311, in _open
+    self.f = open(self.path, mode=self.mode)
+IsADirectoryError: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305916._000009.output.root'
+2024-06-05 13:48:32 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 13:57:37 [dump_selected_samples_to_h5.py:read_mc] 4248754 samples read for dsid 506193
+2024-06-05 13:57:37 [reader.py:read_samples_for_dsid] reading samples for dsid 506194 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 14:13:02 [reader.py:read_concatenate_samples] caught exception while reading file: [Errno 21] Is a directory: '/eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506194.MGPy8EG_Zee_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root/user.ltoffoli.37305915._000006.output.root'
+2024-06-05 14:45:47 [dump_selected_samples_to_h5.py:read_mc] 13874163 samples read for dsid 506194
+2024-06-05 14:45:47 [reader.py:read_samples_for_dsid] reading samples for dsid 506195 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506195.MGPy8EG_Zee_FxFx_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-05 15:24:48 [reader.py:read_samples_for_dsid] reading samples for dsid 506193 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506193.MGPy8EG_Zee_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 82
+    else:
+    ^^^^
+SyntaxError: invalid syntax
+2024-06-07 10:14:45 [reader.py:read_samples_for_dsid] reading samples for dsid 506196 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 10:30:53 [dump_selected_samples_to_h5.py:read_mc] 6694426 samples read for dsid 506196
+2024-06-07 10:30:53 [reader.py:read_samples_for_dsid] reading samples for dsid 506197 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 11:17:16 [reader.py:read_samples_for_dsid] reading samples for dsid 512198 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512198.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 11:17:18 [dump_selected_samples_to_h5.py:read_mc] 532 samples read for dsid 512198
+2024-06-07 11:17:18 [reader.py:read_samples_for_dsid] reading samples for dsid 512199 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512199.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 11:17:24 [dump_selected_samples_to_h5.py:read_mc] 2609 samples read for dsid 512199
+2024-06-07 11:17:24 [reader.py:read_samples_for_dsid] reading samples for dsid 512200 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512200.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 11:17:33 [dump_selected_samples_to_h5.py:read_mc] 6288 samples read for dsid 512200
+2024-06-07 11:17:33 [dump_selected_samples_to_h5.py:<module>] mc tautau read: 6288 samples
+2024-06-07 11:17:33 [dump_selected_samples_to_h5.py:<module>] writing selected tautau samples to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5
+2024-06-07 11:17:53 [reader.py:read_samples_for_dsid] reading samples for dsid 506196 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 11:32:56 [dump_selected_samples_to_h5.py:read_mc] 6694426 samples read for dsid 506196
+2024-06-07 11:32:56 [reader.py:read_samples_for_dsid] reading samples for dsid 506197 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5.py", line 97, in <module>
+    dump(samples,file_name)
+NameError: name 'samples' is not defined
+2024-06-07 13:49:39 [reader.py:read_samples_for_dsid] reading samples for dsid 506196 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506196.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-07 14:05:26 [dump_selected_samples_to_h5.py:read_mc] 6694426 samples read for dsid 506196
+2024-06-07 14:05:26 [dump_selected_samples_to_h5.py:<module>] mc mumu read: 6694426 samples for dsid 506196
+2024-06-07 14:05:27 [dump_selected_samples_to_h5.py:dump] writing selected samples to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_mumu_506196.h5
+2024-06-07 14:05:35 [reader.py:read_samples_for_dsid] reading samples for dsid 506197 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.506197.MGPy8EG_Zmumu_FxFx_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root

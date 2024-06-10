@@ -1,0 +1,47 @@
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 23
+    def read_mc(dsids:list[str],features_out:list[str],N:int=None,file_name:str) -> None:
+                                                                  ^^^^^^^^^^^^^
+SyntaxError: non-default argument follows default argument
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 23
+    def read_mc(dsids:list[str],features_out:list[str],N:int=None,file_name:str) -> None:
+                                                                  ^^^^^^^^^^^^^
+SyntaxError: non-default argument follows default argument
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 26
+    weights = util.compute_w_samples(samples, dsid)
+                                                   ^
+IndentationError: unindent does not match any outer indentation level
+2024-06-10 16:20:54 [reader.py:read_samples_for_dsid] reading samples for dsid 512198 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512198.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 87, in <module>
+    write_to_h5(dsids=dsids,features_out=feat_mc,file_name=path,N=N)        
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 52, in write_to_h5
+    field_types = [s._primitive for s in samples.type.content.contents]
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 52, in <listcomp>
+    field_types = [s._primitive for s in samples.type.content.contents]
+AttributeError: 'ListType' object has no attribute '_primitive'
+2024-06-10 16:29:31 [reader.py:read_samples_for_dsid] reading samples for dsid 512198 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512198.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 87, in <module>
+    write_to_h5(dsids=dsids,features_out=feat_mc,file_name=path,N=N)        
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 60, in write_to_h5
+    events = add_samples_to_file(events,samples)
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 35, in add_samples_to_file
+    logger.info(f'adding {len(samples)} samples to file of length {len(events)} read for dsid {dsid}')
+NameError: name 'dsid' is not defined. Did you mean: 'dsids'?
+2024-06-10 16:30:14 [reader.py:read_samples_for_dsid] reading samples for dsid 512198 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512198.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:30:16 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 532 samples to file of length 0
+2024-06-10 16:30:16 [reader.py:read_samples_for_dsid] reading samples for dsid 512199 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512199.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:30:22 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 2077 samples to file of length 532
+2024-06-10 16:30:22 [reader.py:read_samples_for_dsid] reading samples for dsid 512200 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512200.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:30:33 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 3679 samples to file of length 2609
+Traceback (most recent call last):
+  File "/eos/home-k/kiwoznia/dev/rodem/jettag/ntuple_root_to_h5_converter/scripts/dump_selected_samples_to_h5_by_file_extension.py", line 91, in <module>
+    write_to_h5(dsids=dsids,features_out=feat_mc,file_name=path,N=N)        
+TypeError: write_to_h5() got an unexpected keyword argument 'file_name'
+2024-06-10 16:34:54 [reader.py:read_samples_for_dsid] reading samples for dsid 512198 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512198.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_BF.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:34:56 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 532 samples to file of length 0
+2024-06-10 16:34:56 [reader.py:read_samples_for_dsid] reading samples for dsid 512199 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512199.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CFBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:35:01 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 2077 samples to file of length 532
+2024-06-10 16:35:01 [reader.py:read_samples_for_dsid] reading samples for dsid 512200 from /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/negtag/Rel24_GN2v01/Ntuples_Nominal/mc20d/user.ltoffoli.mc20_13T.512200.MGPy8EG_FxFx_Ztautau_3jets_HT2bias_CVBV.D_FTAG2.e8382_s3681_r13144_p5981.GN2v01_Nom_output.root
+2024-06-10 16:35:09 [dump_selected_samples_to_h5_by_file_extension.py:add_samples_to_file] adding 3679 samples to file of length 2609
+2024-06-10 16:35:09 [dump_selected_samples_to_h5_by_file_extension.py:write_to_h5] wrote 6288 selected samples for dsids ['512198', '512199', '512200'] to /eos/atlas/atlascerngroupdisk/perf-flavtag/calib/ucalib/selected_lightjets/mc_tautau.h5

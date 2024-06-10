@@ -3,6 +3,7 @@ import sys
 sys.path.append('..')
 import awkward as awk
 import os
+import pandas as pd
 from heputl import logging as heplog
 
 import src.reader as read
@@ -15,44 +16,13 @@ import src.util as util
 logger = heplog.get_logger(__name__)
 
 
-def read_samples(dsids:list[str],feature_filter:list[str],N:int=None) -> awk.highlevel.Array:
+def read_selected(sample_id:str,feature_names:list[str],N:int=None) -> pd.DataFrame:
 
-    samples_concat = None
+    path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[sample_id])
+    df = pd.read_hdf(path,'df')[feature_names]
 
-    for dsid in dsids:
-        samples = read.read_samples_for_dsid(dsid,N=N)
-        selected = sele.select_lightjets(samples)
-        weights = util.compute_w_samples(selected, dsid)
-        selected['dsid'] = dsid
-        selected['wt'] = weights
-        if samples_concat is None:
-            samples_concat = selected[feature_filter]
-        else:    
-            samples_concat = awk.concatenate([samples_concat,selected[feature_filter]])
+    return df.iloc[:N] if N else df
 
-    return samples_concat
-
-
-def read_mc_background(N:int=None) -> tuple[awk.highlevel.Array]:
-
-    dsids = list(stco.ds_ids_bg.values())
-
-    feature_filter = ['jet_pt_lead','jet_eta_lead','dsid','wt']
-
-    samples_concat = read_samples(dsids,feature_filter, N=N)
-    
-    return util.split_into_ttbar_zz_wz(samples_concat) # ttb, zz, wz
-
-
-def read_mc_signal(N:int=None) -> tuple[awk.highlevel.Array]:
-
-    dsids = sum(list(stco.ds_ids_sig.values()),[])
-
-    feature_filter=['jet_pt_lead','jet_eta_lead','jet_truthflav_lead', 'wt']
-
-    samples_concat = read_samples(dsids,feature_filter,N=N)
-
-    return util.split_by_jet_flavor(samples_concat)
 
 
 
@@ -62,24 +32,25 @@ if __name__ == '__main__':
     #                    read MC & data                           #
     # *********************************************************** #
 
-    N = int(1e5)
+    N = int(1e3)
+    feature_names = ['jet_eta_lead', 'jet_pt_lead', stco.JET_TRUTH, 'wt']
 
     #***************************** MC *************************** #
 
     # background
-
-    ttb, zz, wz = read_mc_background(N)
+    df = read_mc_from_selected('bg',feature_names=feature_names, N=N)
+    ttb, zz, wz = util.split_into_ttbar_zz_wz(df) # ttb, zz, wz
     logger.info(f'mc background read: {len(ttb)} ttb, {len(zz)} zz and {len(wz)} wz samples')
 
     # signal
-
-    jetU, jetC, jetB, jetT = read_mc_signal(N)
+    df = read_mc_from_selected('sig',feature_names=feature_names, N=N)
+    jetU, jetC, jetB, jetT = util.split_by_jet_flavor(df)
     logger.info(f'mc signal read: {len(jetU)} light, {len(jetC)} charm, {len(jetB)} B and {len(jetT)} tau jet samples')
 
 
     #***************************** data ************************** #
 
-    dat = read.read_data_samples(N)
+    dat = read_mc_from_selected('dat',feature_names=feature_names[:-2], N=N)
     logger.info(f'data read: {len(dat)} samples')
 
 
@@ -94,7 +65,7 @@ if __name__ == '__main__':
     labels = ['ttb', 'zz', 'wz', 'Z + light jet', 'Z + c jet', 'Z + b jet', 'Z + tau jet']
 
     # set plotting params
-    fig_dir = os.path.join(stco.results_fig_dir,'hist')
+    fig_dir = os.path.join(stco.results_dir_fig,'hist')
     logger.info(f'plotting mc vs data histogram to {fig_dir}')
     binN = 100
 
@@ -105,5 +76,6 @@ if __name__ == '__main__':
     _ = plt.hist(values, weights=weights, stacked=True, label=labels, bins=binN)
     plt.scatter(bins[:-1]+ 0.5*(bins[1:] - bins[:-1]), dat_n, marker='o', c='black', s=4, alpha=1)
     plt.legend()
+    plt.xlabel('jet pt')
     fig.savefig(os.path.join(fig_dir, 'hist_mc_vs_dat_jet_pt'+'.png'), bbox_inches='tight')
 

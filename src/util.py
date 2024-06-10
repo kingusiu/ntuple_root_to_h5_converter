@@ -1,5 +1,7 @@
 import awkward as awk
 import numpy as np
+import pandas as pd
+import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 #sys.path.append('/eos/home-k/kiwoznia/dev/rodem/jettag')
@@ -10,7 +12,7 @@ import src.selection as sele
 
 
 
-def split_by_jet_flavor(samples:awk.highlevel.Array, jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
+def split_by_jet_flavor(samples:awk.highlevel.Array|pd.DataFrame, jet_truth_var:str=stco.JET_TRUTH+'_lead') -> tuple[awk.highlevel.Array|pd.DataFrame]:
 	# *********************************************************** #
 	#                 SPLIT SIGNAL BY JET FLAVOR                  #
 	# *********************************************************** #
@@ -40,7 +42,7 @@ def split_by_jet_flavor(samples:awk.highlevel.Array, jet_truth_var:str='jet_trut
 #     					  MC class 		    			      #
 # *********************************************************** #
 
-def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='jet_truthflav_lead') -> list[awk.highlevel.Array]:
+def split_light_vs_nonlight_jet(samples:awk.highlevel.Array|pd.DataFrame,jet_truth_var:str=stco.JET_TRUTH+'_lead') -> tuple[awk.highlevel.Array|pd.DataFrame]:
 	# *********************************************************** #
 	#     SPLIT SIGNAL INTO LIGHT and NON-LIGHT JET EVENTS        #
 	# *********************************************************** #
@@ -52,10 +54,10 @@ def split_light_vs_nonlight_jet(samples:awk.highlevel.Array,jet_truth_var:str='j
 	samples_light = samples[light_mask]
 	samples_non_light = samples[~light_mask]
 
-	return [samples_light, samples_non_light]
+	return samples_light, samples_non_light
 
 
-def split_into_ttbar_zz_wz(samples:awk.highlevel.Array) -> tuple[awk.highlevel.Array]:
+def split_into_ttbar_zz_wz(samples:awk.highlevel.Array|pd.DataFrame) -> tuple[awk.highlevel.Array|pd.DataFrame]:
 	"""split samples into ttbar, zz-diboson and wz-diboson events
 	
 	Args:
