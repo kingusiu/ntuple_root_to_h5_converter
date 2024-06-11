@@ -33,7 +33,7 @@ def read_and_select_lightjets(file_path:str,feat_in:list[str]=stco.feature_names
 
 def get_preprocessed_mc_samples_from_file(file_path:str,dsid:str,feat_out:list[str],feat_in:list[str]=stco.feature_names) -> awk.highlevel.Array:
 
-    samples = read_and_select_lightjets(file_path, feature_names=feat_in)
+    samples = read_and_select_lightjets(file_path, feat_in=feat_in)
     weights = util.compute_w_samples(samples, dsid)
     samples['dsid'] = np.int32(dsid)
     samples['wt'] = weights
@@ -68,7 +68,7 @@ def write_selected_samples_to_h5_mc(events:h5py.Dataset, dsids:list[str], feat_o
         for file_path in get_file_paths_for_dsid(dsid):
 
             try:
-                samples = get_preprocessed_mc_samples_from_file(file_path,dsid,feat_out)
+                samples = get_preprocessed_mc_samples_from_file(file_path=file_path,dsid=dsid,feat_out=feat_out)
                 logger.info(f'adding {len(samples)} samples from {os.path.basename(file_path)} to out-file of length {len(events)}')
                 events = add_samples_to_file(events,samples)
                 gc.collect()
@@ -77,7 +77,7 @@ def write_selected_samples_to_h5_mc(events:h5py.Dataset, dsids:list[str], feat_o
 
                 logger.warning(f'caught exception while reading file: {exc}')
 
-        logger.info(f'wrote {len(events-n_curr)} selected samples for dsid {dsid} to {events.file.filename}')
+        logger.info(f'wrote {len(events)-n_curr} selected samples for dsid {dsid} to {events.file.filename}')
         n_curr = len(events)
 
     return events
@@ -91,7 +91,7 @@ def write_selected_samples_to_h5_data(events:h5py.Dataset, file_paths:list[str],
         try:
             samples = read_and_select_lightjets(file_path,feat_in)
             logger.info(f'adding {len(samples)} samples from {os.path.basename(file_path)} to set of length {len(events)}')
-            events = add_samples_to_file(events,samples)
+            events = add_samples_to_file(events,samples[feat_out])
             gc.collect()
 
         except Exception as exc:
@@ -115,7 +115,7 @@ def get_dtype_for_h5(samples:awk.highlevel.Array) -> np.dtype:
 def dump_mc_to_h5(dsids:list[str],feat_out:list[str],file_out_path:str,sample_type:str) -> None:
 
     # read one chunk to get dtype
-    samples = get_preprocessed_mc_samples_from_file(get_file_paths_for_dsid(dsids[0])[0],dsid[0],feat_out)
+    samples = get_preprocessed_mc_samples_from_file(get_file_paths_for_dsid(dsids[0])[0],dsids[0],feat_out)
     dtype = get_dtype_for_h5(samples)
 
     # create file
@@ -130,12 +130,12 @@ def dump_mc_to_h5(dsids:list[str],feat_out:list[str],file_out_path:str,sample_ty
 
 
 
-def dump_data_to_h5(file_out_path:str,feat_out:list[str]) -> None:
+def dump_data_to_h5(feat_out:list[str],file_out_path:str,sample_type:str) -> None:
 
     file_paths = [os.path.join(stco.in_dir_data, ff) for ff in os.listdir(stco.in_dir_data)]
 
     # read one file to get dtype for output file
-    samples = read_and_select_lightjets(file_paths[0], feature_names=stco.feature_names_dat)
+    samples = read_and_select_lightjets(file_paths[0], feat_in=stco.feature_names_dat)
     dtype = get_dtype_for_h5(samples[feat_out])
 
 
@@ -156,7 +156,7 @@ def dump_data_to_h5(file_out_path:str,feat_out:list[str]) -> None:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for lightjet dump')
-    tt = parser.add_argument('-t', dest='type', choices=['dat','bg','ee','mumu','tautau'], help='type of samples to be read, processed and persisted')
+    tt = parser.add_argument('-t', dest='type', choices=['dat','bg','sig','ee','mumu','tautau'], help='type of samples to be read, processed and persisted')
     args = parser.parse_args()
 
     # *********************************************************** #
@@ -172,15 +172,18 @@ if __name__ == '__main__':
 
     if args.type == 'dat':
 
+        logger.info(f'reading data samples')
         out_path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[args.type])
-        dump_data_to_h5(file_out_path=out_path,feat_out=feat_dat)
+        dump_data_to_h5(feat_out=feat_dat,file_out_path=out_path,sample_type=args.type)
 
         
     #***************************** MC ************************** #
 
     else: # else read montecarlo
 
-        if args.type == 'sig': dsids = sum(list(ds_ids_sig.values()),[]) # all signal samples
+        logger.info(f'reading montecarlo {args.type} samples')
+
+        if args.type == 'sig': dsids = sum(list(stco.ds_ids_sig.values()),[]) # all signal samples
         elif args.type == 'bg': dsids = list(stco.ds_ids_bg.values()) # background
         else: dsids = stco.ds_ids_sig[args.type] # individual signal samples
         out_path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[args.type])
