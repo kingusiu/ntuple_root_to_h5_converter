@@ -35,7 +35,7 @@ ds_ids_bg = {
 
 ds_ids_all = list(ds_ids_bg.values()) + sum(list(ds_ids_sig.values()),[])
 
-JET_U, JET_C, JET_B, JET_T = 0, 4, 5, 15
+JET_U, JET_C, JET_C_DB, JET_B, JET_BC, JET_B_DB, JET_T = 0, 4, 44, 5, 54, 55, 15
 JET_TRUTH = 'jet_truthflavExtended'
 
 feature_names = ['el_e','mu_e','el_charge','mu_charge','el_pt','mu_pt', 'el_phi','mu_phi', 'el_eta', 'mu_eta', \

@@ -66,7 +66,7 @@ def plot_ratio_hist(vals_mc:list[pd.Series],vals_dat:pd.Series,weights:list[pd.S
     ax1.scatter(bins[:-1]+ 0.5*(bins[1:] - bins[:-1]), dat_n, marker='o', c='black', s=4, alpha=1, label='data')
     ax1.legend(frameon=False)
     # import ipdb; ipdb.set_trace()
-    ratio = np.divide(sum(mc_ns),dat_n,out=np.zeros_like(dat_n), where=dat_n!=0)
+    ratio = np.divide(mc_ns[-1],dat_n,out=np.zeros_like(dat_n), where=dat_n!=0)
     honolulu = '#E54F6D'
     ax2.scatter(bins[:-1], ratio, color=honolulu, s=4)
     ax2.set_xlabel(xlabel)
@@ -84,6 +84,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for histogramming')
     tt = parser.add_argument('-n', dest='N', default=None, type=int, help='number of samples to be read for each datatype')
+    parser.add_argument('-f', dest='feat', choices=['pt','eta'], help='feature to plot')
     args = parser.parse_args()
 
 
@@ -91,7 +92,15 @@ if __name__ == '__main__':
     #                    read MC & data                           #
     # *********************************************************** #
 
-    feature_names = ['jet_pt_lead', stco.JET_TRUTH+'_lead', 'wt', 'dsid']
+    feat_dd = {
+        'pt' : {'name':'jet_pt_lead', 'xlabel': 'jet pt [GeV]', 'max':300},
+        'eta' : {'name':'jet_eta_lead','xlabel': 'jet eta','max':None}
+    }
+
+    feat_name = feat_dd[args.feat]['name']
+    xlabel = feat_dd[args.feat]['xlabel']
+    val_max = feat_dd[args.feat]['max']
+    feature_names = [feat_name, stco.JET_TRUTH+'_lead', 'wt', 'dsid']
 
     #***************************** MC *************************** #
 
@@ -124,18 +133,17 @@ if __name__ == '__main__':
 
     # assemble samples to plot
 
-    # mc
-    vals_mc = [v/1e3 for v in [ttb.jet_pt_lead, zz.jet_pt_lead, wz.jet_pt_lead, jetU.jet_pt_lead, jetC.jet_pt_lead, jetB.jet_pt_lead, jetT.jet_pt_lead]]
+    vals_mc = [ttb[feat_name], zz[feat_name], wz[feat_name], jetU[feat_name], jetC[feat_name], jetB[feat_name], jetT[feat_name]]
+    vals_dat = dat[feat_name]
+    if 'pt' in feat_name: 
+        vals_mc = [v/1e3 for v in vals_mc]
+        vals_dat = vals_dat/1e3
     weights = [ttb.wt, zz.wt, wz.wt, jetU.wt, jetC.wt, jetB.wt, jetT.wt]
     labels = ['ttb', 'zz', 'wz', 'Z + light jet', 'Z + c jet', 'Z + b jet', 'Z + tau jet']
-    # data
-    vals_dat = dat.jet_pt_lead/1e3
-    val_max = 300
-    xlabel = 'jet pt [GeV]'
 
     # plot
-
-    plot_ratio_hist(vals_mc=vals_mc,vals_dat=vals_dat,weights=weights,labels=labels,val_max=val_max,xlabel=xlabel,plot_name='hist_mc_vs_dat_jet_pt')
+    plot_name = 'hist_mc_vs_dat_'+feat_name
+    plot_ratio_hist(vals_mc=vals_mc,vals_dat=vals_dat,weights=weights,labels=labels,val_max=val_max,xlabel=xlabel,plot_name=plot_name)
 
     
 

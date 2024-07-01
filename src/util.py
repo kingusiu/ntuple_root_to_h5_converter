@@ -24,11 +24,11 @@ def split_by_jet_flavor(samples:awk.highlevel.Array|pd.DataFrame, jet_truth_var:
 	ZplusLight = samples[light_mask]
 
 	# Z+c-jets
-	charm_mask = samples[jet_truth_var] == stco.JET_C
+	charm_mask = (samples[jet_truth_var] == stco.JET_C) or (samples[jet_truth_var] == stco.JET_C_DB) 
 	ZplusC = samples[charm_mask]
 
 	# Z+b-jets
-	b_mask = samples[jet_truth_var] == stco.JET_B
+	b_mask = (samples[jet_truth_var] == stco.JET_B) or (samples[jet_truth_var] == stco.JET_B_DB) or (samples[jet_truth_var] == stco.JET_BC)
 	ZplusB = samples[b_mask]
 
 	# Z+tau-jets
