@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='read arguments for histogramming')
     tt = parser.add_argument('-n', dest='N', default=None, type=int, help='number of samples to be read for each datatype')
-    parser.add_argument('-f', dest='feat', choices=['pt','eta','pu','pb','pc'], help='feature to plot')
+    parser.add_argument('-f', dest='feat', choices=['pt','eta','pu','pb','pc','dl1r'], help='feature to plot')
     args = parser.parse_args()
 
 
@@ -88,12 +88,13 @@ if __name__ == '__main__':
         'pu' : {'name':'jet_GN2_pu_lead','xlabel': 'pu','max': None},
         'pb' : {'name':'jet_GN2_pb_lead','xlabel': 'pb','max': None},
         'pc' : {'name':'jet_GN2_pc_lead','xlabel': 'pc','max': None},
+        'dl1r' : {'name':['jet_GN2_pu_lead','jet_GN2_pb_lead','jet_GN2_pc_lead'],'xlabel': 'dl1r','max': None},
     }
 
     feat_name = feat_dd[args.feat]['name']
     xlabel = feat_dd[args.feat]['xlabel']
     val_max = feat_dd[args.feat]['max']
-    feature_names = [feat_name, stco.JET_TRUTH+'_lead', 'wt', 'dsid']
+    feature_names = [stco.JET_TRUTH+'_lead', 'wt', 'dsid'] + (feat_name if args.feat == 'dl1r' else [feat_name] )
 
     #***************************** MC *************************** #
 
@@ -126,11 +127,29 @@ if __name__ == '__main__':
 
     # assemble samples to plot
 
-    vals_mc = [ttb[feat_name], zz[feat_name], wz[feat_name], jetU[feat_name], jetC[feat_name], jetB[feat_name], jetT[feat_name]]
-    vals_dat = dat[feat_name]
+    ## stored features
+
+    if args.feat != 'dl1r':
+
+        vals_mc = [ttb[feat_name], zz[feat_name], wz[feat_name], jetU[feat_name], jetC[feat_name], jetB[feat_name], jetT[feat_name]]
+        vals_dat = dat[feat_name]
+
+    ## dl1r
+    else:
+
+        vals_mc = []
+        for ss in [ttb, zz, wz, jetU, jetC, jetB, jetT]:
+            dl1r = util.compute_dl1r(pu=ss['jet_GN2_pu_lead'], pb=ss['jet_GN2_pb_lead'], pc=ss['jet_GN2_pc_lead'])
+            vals_mc.append(dl1r)
+
+        vals_dat = util.compute_dl1r(pu=dat['jet_GN2_pu_lead'], pb=dat['jet_GN2_pb_lead'], pc=dat['jet_GN2_pc_lead'])
+
+    # normalize pt
     if 'pt' in feat_name: 
         vals_mc = [v/1e3 for v in vals_mc]
         vals_dat = vals_dat/1e3
+
+
     weights = [ttb.wt, zz.wt, wz.wt, jetU.wt, jetC.wt, jetB.wt, jetT.wt]
     labels = ['ttbar', 'zz', 'wz', 'Z + light jet', 'Z + c jet', 'Z + b jet', 'Z + tau jet']
 
