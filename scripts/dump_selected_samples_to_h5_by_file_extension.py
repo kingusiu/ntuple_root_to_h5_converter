@@ -122,7 +122,7 @@ def dump_mc_to_h5(dsids:list[str],feat_out:list[str],file_out_path:str,sample_ty
     with h5py.File(file_out_path, 'w') as outfile:
 
         outfile.create_dataset("feature_names",data=[f.encode("ascii", "ignore") for f in feat_out],dtype='S10')
-        events = outfile.create_dataset("events", shape=(0,), maxshape=(None,), dtype=dtype)
+        events = outfile.create_dataset("events", shape=(0,), maxshape=(None,), dtype=dtype) # create empty dataset
 
         events = write_selected_samples_to_h5_mc(events, dsids, feat_out)
 

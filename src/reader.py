@@ -6,6 +6,8 @@ import awkward as awk
 import glob
 import os
 import gc
+import h5py
+import pandas as pd
 from typing import List
 
 import sys
@@ -86,3 +88,22 @@ def read_data_samples(N:int=None, filtered=False) -> awk.highlevel.Array:
     logger.info(f'reading data samples from {stco.in_dir_data}')
 
     return read_concatenate_samples(file_paths,feature_names_from_file=stco.feature_names_dat,N=N,filtered=filtered)
+
+
+def read_selected(sample_id:str,feature_names:list[str],N:int=None) -> pd.DataFrame:
+    """read selected samples from dump
+    
+    Args:
+        sample_id (str): sample id
+        feature_names (list[str]): features to be read
+        N (int, optional): limit number
+    
+    Returns:
+        pd.DataFrame: N samples for id sample_id with features feature_names
+    """
+    path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[sample_id])
+    ff = h5py.File(path, 'r')
+    df = pd.DataFrame(np.array(ff['events'][:N][feature_names]))
+    if 'dsid' in feature_names: df['dsid'] = df['dsid'].apply(str)
+
+    return df

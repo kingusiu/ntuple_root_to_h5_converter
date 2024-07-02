@@ -24,11 +24,11 @@ def split_by_jet_flavor(samples:awk.highlevel.Array|pd.DataFrame, jet_truth_var:
 	ZplusLight = samples[light_mask]
 
 	# Z+c-jets
-	charm_mask = (samples[jet_truth_var] == stco.JET_C) or (samples[jet_truth_var] == stco.JET_C_DB) 
+	charm_mask = (samples[jet_truth_var] == stco.JET_C) | (samples[jet_truth_var] == stco.JET_C_DB) 
 	ZplusC = samples[charm_mask]
 
 	# Z+b-jets
-	b_mask = (samples[jet_truth_var] == stco.JET_B) or (samples[jet_truth_var] == stco.JET_B_DB) or (samples[jet_truth_var] == stco.JET_BC)
+	b_mask = (samples[jet_truth_var] == stco.JET_B) | (samples[jet_truth_var] == stco.JET_B_DB) | (samples[jet_truth_var] == stco.JET_BC)
 	ZplusB = samples[b_mask]
 
 	# Z+tau-jets
@@ -95,7 +95,7 @@ def compute_w_samples(samples:awk.highlevel.Array, dsid:str) -> awk.highlevel.Ar
 
 
 # *********************************************************** #
-#     					event kinematics    			      #
+#     					event observables    			      #
 # *********************************************************** #
 
 
@@ -106,3 +106,8 @@ def compute_dilepton_pt_m(pt, eta, phi, part_m):
 
 	return mass, pt_ll
 
+
+
+def compute_dl1r(pu:np.ndarray, pb:np.ndarray, pc:np.ndarray) -> np.ndarray:
+	fc = 0.018
+	return np.array([np.log(pb) - np.log(fc * pc + (1. - fc) * pu)])
