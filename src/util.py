@@ -111,5 +111,5 @@ def compute_dilepton_pt_m(pt, eta, phi, part_m):
 def compute_dl1r(pu:np.ndarray, pb:np.ndarray, pc:np.ndarray) -> np.ndarray:
 
 	fc = 0.018
-	return np.array([np.log(pb) - np.log(fc * pc + (1. - fc) * pu)])
+	return np.log(pb) - np.log(fc * pc + (1. - fc) * pu)
 

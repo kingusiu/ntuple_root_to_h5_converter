@@ -101,9 +101,13 @@ def read_selected(sample_id:str,feature_names:list[str],N:int=None) -> pd.DataFr
     Returns:
         pd.DataFrame: N samples for id sample_id with features feature_names
     """
+
+
     path = os.path.join(stco.out_dir_data_selected,stco.selected_file_names_dd[sample_id])
-    ff = h5py.File(path, 'r')
-    df = pd.DataFrame(np.array(ff['events'][:N][feature_names]))
-    if 'dsid' in feature_names: df['dsid'] = df['dsid'].apply(str)
+    if 'dl1r' in feature_names: path = path[:-3]+'_dl1r'+path[-3:]
+
+    with h5py.File(path, 'r') as ff:
+        df = pd.DataFrame(np.array(ff['events'][:N][feature_names]))
+        if 'dsid' in feature_names: df['dsid'] = df['dsid'].apply(str) # convert dsid to string
 
     return df
